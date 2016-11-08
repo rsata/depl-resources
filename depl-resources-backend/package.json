@@ -1,0 +1,25 @@
+{
+  "name": "depl-resources-backend",
+  "version": "0.0.1",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "startMongo": "mongod",
+    "start": "nodemon server.js"
+  },
+  "author": "Reid",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "express": "^4.14.0",
+    "moment": "^2.15.2",
+    "mongodb": "^2.2.11"
+  },
+  "devDependencies": {
+    "eslint": "^3.9.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-promise": "^3.3.1",
+    "eslint-plugin-react": "^6.5.0",
+    "eslint-plugin-standard": "^2.0.1"
+  }
+}
