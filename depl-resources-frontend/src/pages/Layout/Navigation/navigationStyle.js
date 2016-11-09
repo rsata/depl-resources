@@ -1,4 +1,7 @@
 module.exports = {
+  wrapper: {
+    margin: '0px 0px 30px 0px'
+  },
   li: {
     display: 'inline-block',
   },
