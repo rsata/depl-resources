@@ -2,7 +2,7 @@ import React from 'react';
 
 class HeatPage extends React.Component {
   render() {
-    return(
+    return (
       <div>Heat Page</div>
     )
   }
