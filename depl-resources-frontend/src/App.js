@@ -3,7 +3,8 @@ import React, { Component } from 'react';
 import { Router, Route, IndexRedirect, hashHistory } from 'react-router';
 
 import Deployment from './pages/Deployment/deployment';
-import docItem from './pages/Deployment/docItem'
+import docEdit from './pages/Documents/docEdit';
+import docItem from './pages/Documents/docItem';
 import Heat from './pages/Heat/heat';
 import Layout from './pages/Layout/layout';
 import Settings from './pages/Settings/settings';
@@ -24,6 +25,12 @@ class App extends Component {
       .then(data => this.setState({data}));
   }
 
+  // updateEntry(id) {
+    // update the particular part of the state based on id
+    // make server call to /api/data/deployment/update
+    // add to doc/edit/:id path - updateEntry={this.updateEntry}
+  // }
+
   render() {
     if (!this.state.data) return <h1>Loading...</h1>
 
@@ -31,8 +38,9 @@ class App extends Component {
       <Router history={hashHistory}>
         <Route path='/' component={Layout}>
           <IndexRedirect to="/deployment" />
-          <Route path='deployment' component={Deployment} data={this.state.data}/>
-          <Route path='doc/:id' component={docItem} data={this.state.data}/>
+          <Route path='deployment' component={Deployment} data={this.state.data} />
+          <Route path='doc/:id' component={docItem} data={this.state.data} />
+          <Route path='doc/edit/:id' component={docEdit} data={this.state.data} />
           <Route path='heat' component={Heat} />
           <Route path='settings' component={Settings} />
         </Route>
