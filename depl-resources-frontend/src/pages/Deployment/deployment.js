@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-
-import DocItem from './docItem';
+import { Link } from 'react-router';
 
 class DeploymentPage extends Component {
-
-  constructor() {
-    super();
-    this.state = {
-      data: null
-    }
-  }
-
-  componentDidMount() {
-    fetch('http://localhost:3001/api/data/deployment/get')
-      .then(r => r.json())
-      .then(data => this.setState({data}));
-  }
-
   render() {
-    if (!this.state.data) return <h1>Loading...</h1>
     return(
       <div>
         Deployment Page
-        <ul>
-          {this.state.data.map(x => {
-            return <DocItem key={x._id} id={x._id} title={x.title} data={x.entry} lastEdited={x.lastEdited} />
-          })}
-        </ul>
+        <div>
+          <h1>Site Build</h1>
+          <ul>
+            {this.props.route.data.map(x => {
+              // this is inefficient because have to loop through state twice...  Should get sorted in componentDidMount
+              // type should be int
+              if (x.type !== 'siteConfig') return undefined;
+              return <li key={x._id}><Link to={`doc/${x._id}`}>{x.title}</Link></li>
+            })}
+          </ul>
+          <h1>Standards</h1>
+          <ul>
+            {this.props.route.data.map(x => {
+              if (x.type !== 'standards') return undefined;
+              return <li key={x._id}><Link to={`doc/${x._id}`}>{x.title}</Link></li>
+            })}
+          </ul>
+        </div>
       </div>
     )
   }

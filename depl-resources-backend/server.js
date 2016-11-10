@@ -47,8 +47,10 @@ app.get('/api/data/deployment/get', function(req, res, next) {
     assert.equal(null, err);
 
     const collection = db.collection('resources');
-    collection.find().toArray((err, doc) => {
+    collection.find({}).toArray((err, doc) => {
+      if (err) return console.log(err);
       res.json(doc);
+      console.log('sent data');
     });
 
     db.close();
