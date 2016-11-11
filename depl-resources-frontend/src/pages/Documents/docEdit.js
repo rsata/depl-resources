@@ -18,7 +18,7 @@ class docEdit extends Component {
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handleEntryChange = this.handleEntryChange.bind(this);
-    // this.updateEntry = this.updateEntry.bind(this);
+    this.handleSubmitClick = this.handleSubmitClick.bind(this);
   }
 
   componentDidMount() {
@@ -41,10 +41,14 @@ class docEdit extends Component {
     this.setState({entry: e.target.value});
   }
 
-  // updateEntry(e) {
-  //   e.preventDefault();
-  //   this.props.updateEntry({id, title, entry})
-  // }
+  handleSubmitClick(e) {
+    e.preventDefault();
+    const id = this.props.params.id;
+    const title = this.state.title;
+    const entry = this.state.entry;
+
+    this.props.route.updateEntry({id, title, entry})
+  }
 
   render() {
     if(!this.state.title) return <h1>Loading...</h1>
@@ -54,7 +58,7 @@ class docEdit extends Component {
           <h3>Title: </h3><input value={this.state.title} onChange={this.handleTitleChange} />
           <h3>Entry: </h3><textarea value={this.state.entry} style={styles.textInput} onChange={this.handleEntryChange} />
         </form>
-        <button ><Link to='/deployment'>Save</Link></button>
+        <button onClick={this.handleSubmitClick}>Save</button>
         <button><Link to={`/doc/${this.props.params.id}`}>Cancel</Link></button>
       </div>
     )

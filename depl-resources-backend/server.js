@@ -43,7 +43,7 @@ app.get('/api/data/deployment/get', function(req, res, next) {
   // const data = MongoQuery('get', 'depl-resources-db', 'resources');
   // res.send(data);
 
-  MongoClient.connect(url, function(err, db) {
+  MongoClient.connect(url, (err, db) => {
     assert.equal(null, err);
 
     const collection = db.collection('resources');
@@ -60,7 +60,22 @@ app.get('/api/data/deployment/get', function(req, res, next) {
 app.get('/api/data/deployment/add', function(req, res, next) {
   console.log('yay');
   // Document.get(db);
-  Mongo('insert', 'depl-resources-db', 'resources');
+  // Mongo('insert', 'depl-resources-db', 'resources');
+});
+
+app.get('/api/data/deployment/update', function(req, res, next) {
+  const id = req.body.id;
+  const title = req.body.title;
+  const entry = req.body.id;
+
+  MongoClient.connect(url, (err, db) => {
+    const collection = db.collection('resources');
+    // something like this...
+    collection.update({_id: id}, {$set: {title: title, entry: entry}}, (err, result) => {
+      if (err) return err;
+      console.log(result);
+    })
+  })
 });
 
 app.listen(process.env.PORT || 3001);
