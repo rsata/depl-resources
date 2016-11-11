@@ -63,18 +63,20 @@ app.get('/api/data/deployment/add', function(req, res, next) {
   // Mongo('insert', 'depl-resources-db', 'resources');
 });
 
-app.get('/api/data/deployment/update', function(req, res, next) {
+app.post('/api/data/deployment/update', function(req, res, next) {
   const id = req.body.id;
   const title = req.body.title;
-  const entry = req.body.id;
+  const entry = req.body.entry;
 
+  console.log({id, title, entry})
   MongoClient.connect(url, (err, db) => {
     const collection = db.collection('resources');
     // something like this...
     collection.update({_id: id}, {$set: {title: title, entry: entry}}, (err, result) => {
       if (err) return err;
-      console.log(result);
-    })
+      console.log('post success');
+      res.send(result)
+    });
   })
 });
 

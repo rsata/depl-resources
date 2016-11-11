@@ -20,29 +20,32 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.getData();
+  }
+
+  updateEntry({id, title, entry}) {
+    // update the particular part of the state based on id
+    // make server call to /api/data/deployment/update
+    fetch('http://localhost:3001/api/data/deployment/update', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id: id,
+        title: title,
+        entry: entry
+      })
+    })
+      .then(r => r.json())
+      .then(r => console.log(r))
+      .catch(err => console.log(err));
+  }
+
+  getData() {
     fetch('http://localhost:3001/api/data/deployment/get')
       .then(r => r.json())
       .then(data => this.setState({data}));
-  }
-
-  updateEntry(id) {
-    // update the particular part of the state based on id
-    // make server call to /api/data/deployment/update
-    // fetch('http://localhost:3001/api/data/deployment/update', {
-    //   method: 'POST',
-    //   headers: {
-    //     'content-type': 'application/json'
-    //   },
-    //   body: JSON.stringify({
-    //     id: id,
-    //     title: title,
-    //     entry: entry
-    //   })
-    // })
-    //   .catch(err => console.log(err));
-
-    // add to doc/edit/:id path - updateEntry={this.updateEntry}
-    console.log(id);
   }
 
   render() {
