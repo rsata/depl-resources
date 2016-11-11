@@ -9,8 +9,6 @@ import Heat from './pages/Heat/heat';
 import Layout from './pages/Layout/layout';
 import Settings from './pages/Settings/settings';
 
-
-
 class App extends Component {
   constructor() {
     super();
@@ -22,6 +20,10 @@ class App extends Component {
   componentDidMount() {
     this.getData();
   }
+
+  // componentDidUpdate() {
+  //   this.getData()
+  // }
 
   updateEntry({id, title, entry}) {
     // update the particular part of the state based on id
@@ -57,7 +59,7 @@ class App extends Component {
           <IndexRedirect to="/deployment" />
           <Route path='deployment' component={Deployment} data={this.state.data} />
           <Route path='doc/:id' component={docItem} data={this.state.data} />
-          <Route path='doc/edit/:id' component={docEdit} data={this.state.data} updateEntry={this.updateEntry} />
+          <Route path='doc/edit/:id' component={docEdit} data={this.state.data} updateEntry={this.updateEntry.bind(this)} reloadData={this.getData.bind(this)} />
           <Route path='heat' component={Heat} />
           <Route path='settings' component={Settings} />
         </Route>

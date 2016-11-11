@@ -31,6 +31,11 @@ class docEdit extends Component {
     });
   }
 
+  componentWillUnmount() {
+    console.log('about to unmount')
+    this.props.route.reloadData();
+  }
+
   handleTitleChange(e) {
     e.preventDefault();
     this.setState({title: e.target.value});
