@@ -21,8 +21,8 @@ class docItem extends Component {
 
     return(
       <div>
-          <button><Link to='/deployment'>Back</Link></button>
-          <button><Link to={`/doc/edit/${this.props.params.id}`}>Edit</Link></button>
+          <button><Link to='deployment'>Back</Link></button>
+          <button><Link to={`doc/edit/${this.props.params.id}`}>Edit</Link></button>
           <h1>{this.state.doc.title}</h1>
           <p>{this.state.doc.entry}</p>
       </div>
