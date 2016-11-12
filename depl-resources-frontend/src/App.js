@@ -59,7 +59,7 @@ class App extends Component {
           <IndexRedirect to="/deployment" />
           <Route path='deployment' component={Deployment} data={this.state.data} />
           <Route path='doc/:id' component={docItem} data={this.state.data} />
-          <Route path='doc/edit/:id' component={docEdit} data={this.state.data} updateEntry={this.updateEntry.bind(this)} reloadData={this.getData.bind(this)} />
+          <Route path='doc/edit/:id' component={docEdit} data={this.state.data} updateEntry={this.updateEntry.bind(this)} />
           <Route path='heat' component={Heat} />
           <Route path='settings' component={Settings} />
         </Route>
