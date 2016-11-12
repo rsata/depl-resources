@@ -13,7 +13,7 @@ function generateUUID(){
 }
 
 // wtf callback hell fuck
-const data;
+const data = undefined;
 // depl-resources-db, resources
 const MongoQuery = (doQuery) => {
   // console.log(data);
