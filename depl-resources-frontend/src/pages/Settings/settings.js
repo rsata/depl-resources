@@ -2,8 +2,11 @@ import React from 'react';
 
 class Settings extends React.Component {
   render() {
+    console.log(this.props)
     return(
-      <div>Eventually...</div>
+      <div>Eventually...
+        {this.props.children}
+      </div>
     )
   }
 }

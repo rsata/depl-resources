@@ -13,7 +13,8 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      data: null
+      data: null,
+      test: 5
     }
   }
 
@@ -21,9 +22,11 @@ class App extends Component {
     this.getData();
   }
 
-  // componentDidUpdate() {
-  //   this.getData()
-  // }
+  getData() {
+    fetch('http://localhost:3001/api/data/deployment/get')
+      .then(r => r.json())
+      .then(data => this.setState({data}));
+  }
 
   updateEntry({id, title, entry}) {
     // update the particular part of the state based on id
@@ -42,12 +45,6 @@ class App extends Component {
       .then(r => r.json())
       .then(r => console.log(r))
       .catch(err => console.log(err));
-  }
-
-  getData() {
-    fetch('http://localhost:3001/api/data/deployment/get')
-      .then(r => r.json())
-      .then(data => this.setState({data}));
   }
 
   render() {
