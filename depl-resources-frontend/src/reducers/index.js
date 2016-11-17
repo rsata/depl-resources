@@ -1,9 +1,19 @@
-import { combineReducers } from "redux"
+import { combineReducers } from 'redux';
 
-import tweets from "./tweetsReducer"
-import user from "./userReducer"
+/*
+  Reducers
 
-export default combineReducers({
-  tweets,
-  user,
-})
+  Reducers match up the dispatched (fired) action with a function that should be called.
+
+  It takes in a copy of state, modifies it, and returns the new state
+  When state gets large, it makes sense to have multiple reducers that only deal with a piece of the state
+
+*/
+
+import { routerReducer } from 'react-router-redux'; // we need this for react-router
+import count from './count';
+
+// Combine all our reducers togeher
+const rootReducer = combineReducers({ count, routing: routerReducer });
+
+export default rootReducer;

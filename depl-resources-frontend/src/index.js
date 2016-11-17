@@ -1,12 +1,21 @@
-import React from "react"
-import ReactDOM from "react-dom"
-import { Provider } from "react-redux"
+import React from 'react';
+import { render } from 'react-dom';
+import { Provider } from 'react-redux';
+import { Router, Route, IndexRoute } from 'react-router';
 
-import Layout from "./components/Layout"
-import store from "./store"
+import Deployment from './pages/deployment';
+import Bindings from './Bindings';
 
-const app = document.getElementById('root')
+import store, { history } from './store';
 
-ReactDOM.render(<Provider store={store}>
-  <Layout />
-</Provider>, app);
+render(
+  <Provider store={store}>
+    { /* Tell the Router to use our enhanced history */ }
+    <Router history={history}>
+      <Route path="/" component={Bindings}>
+        <IndexRoute component={Deployment} />
+      </Route>
+    </Router>
+  </Provider>,
+  document.getElementById('root')
+);
