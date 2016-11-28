@@ -10,7 +10,6 @@ export default class Deployment extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return(
       <div>
         <h2>Deployment page</h2>

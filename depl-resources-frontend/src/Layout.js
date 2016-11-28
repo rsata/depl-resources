@@ -1,10 +1,12 @@
+// import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { connect } from 'react-redux';
+import { inc, dec } from './actions/countActions';
+import { Link } from 'react-router'
 
-export default class Layout extends Component{
+class Layout extends Component{
   render() {
     console.log(this.props)
-
     return (
       <div>
         <h1><Link to="/">BLAAAA</Link></h1>
@@ -20,3 +22,23 @@ export default class Layout extends Component{
     );
   }
 };
+
+
+const mapStateToProps = (state) => {
+  return {
+    count: state.count
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    increment: (n) => {
+      dispatch(inc(n));
+    },
+    decrement: (n) => {
+      dispatch(dec(n));
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Layout);
