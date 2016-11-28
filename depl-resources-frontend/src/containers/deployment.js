@@ -2,13 +2,11 @@ import React from 'react';
 
 export default class Deployment extends React.Component {
   handleInc() {
-    console.log(this.props.count)
-    this.props.increment();
+    this.props.increment(1);
   }
 
   handleDec() {
-    console.log(this.props.count)
-    this.props.decrement();
+    this.props.decrement(1);
   }
 
   render() {
@@ -16,7 +14,7 @@ export default class Deployment extends React.Component {
     return(
       <div>
         <h2>Deployment page</h2>
-        {/* <h3>{this.props.count}</h3> */}
+        <h3>{this.props.count.count}</h3>
         <button onClick={this.handleInc.bind(this)}>Increment</button>
         <button onClick={this.handleDec.bind(this)}>Decrement</button>
       </div>

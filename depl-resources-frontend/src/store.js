@@ -1,13 +1,21 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import { syncHistoryWithStore } from 'react-router-redux';
-import { browserHistory } from 'react-router'
-import rootReducer from './reducers/index';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { syncHistoryWithStore, routerReducer } from 'react-router-redux';
+import { browserHistory } from 'react-router';
+import { composeWithDevTools } from 'redux-devtools-extension';
+import thunk from 'redux-thunk';
 
-const defaultState = {
-  count: 0
-}
+import countReducer from './reducers/countReducer';
 
-const store = createStore(rootReducer, defaultState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const rootReducer = combineReducers({
+  count: countReducer,
+  routing: routerReducer
+})
+
+const store = createStore(
+  rootReducer,
+  {},
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 export const history = syncHistoryWithStore(browserHistory, store);
 

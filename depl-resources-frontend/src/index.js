@@ -2,12 +2,11 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, IndexRedirect } from 'react-router';
-
-import Deployment from './pages/deployment';
-import Heat from './pages/heat'
-
 import Bindings from './Bindings';
 import store, { history } from './store';
+
+import Deployment from './containers/deployment';
+import Heat from './containers/heat'
 
 render(
   <Provider store={store}>

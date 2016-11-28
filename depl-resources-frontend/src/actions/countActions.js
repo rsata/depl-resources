@@ -1,11 +1,11 @@
-export function increment() {
+export function inc() {
   return {
     type: 'INC',
     payload: 1
   };
 }
 
-export function decrement() {
+export function dec() {
   return {
     type: 'DEC',
     payload: 1
