@@ -1,6 +1,11 @@
 import React from 'react';
 
 export default class Deployment extends React.Component {
+
+  componentDidMount() {
+    this.props.loadData();
+  }
+
   handleInc() {
     this.props.increment(1);
   }

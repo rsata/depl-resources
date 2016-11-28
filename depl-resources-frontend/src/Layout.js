@@ -2,9 +2,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { inc, dec } from './actions/countActions';
+import { loadData } from './actions/initActions';
 import { Link } from 'react-router'
 
 class Layout extends Component{
+
+  componentDidMount() {
+
+  }
+
   render() {
     console.log(this.props)
     return (
@@ -26,7 +32,8 @@ class Layout extends Component{
 
 const mapStateToProps = (state) => {
   return {
-    count: state.count
+    count: state.count,
+    data: state.data
   };
 }
 
@@ -37,6 +44,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     decrement: (n) => {
       dispatch(dec(n));
+    },
+    loadData: () => {
+      dispatch(loadData());
     }
   };
 }
