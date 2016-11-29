@@ -36,6 +36,7 @@ const siteConfig = {
 
 function run() {
   if (command === 'findAll') return findAll();
+  if (command === 'findCustom') return findCustom();
   if (command === 'removeAll') return removeAll();
   if (command === 'insert') return insert();
   return console.log('enter a valid command, stupid')
@@ -50,11 +51,10 @@ function insert() {
     const collection = db.collection('resources');
 
     collection.insert({
-      _id: generateId(),
+      id: generateId(),
       lastEdited: moment().format(),
       type: 'standards',
-      title: 'Standards entry',
-      tags: ['tag1, tag2'],
+      title: '<h1>Standards entry</h1>',
       entry: 'this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.'
     });
     db.close();
@@ -67,6 +67,19 @@ function findAll() {
 
     const collection = db.collection('resources');
     collection.find().toArray((err, data) => {
+      console.log(data);
+    });
+
+    db.close();
+  });
+}
+
+function findCustom() {
+  MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+
+    const collection = db.collection('resources');
+    collection.find({_id: 'f4fa0d73d4acfb1ace40'}).toArray((err, data) => {
       console.log(data);
     });
 

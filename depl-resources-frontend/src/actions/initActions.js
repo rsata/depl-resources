@@ -6,6 +6,5 @@ export function loadData() {
         type: 'LOAD_DATA',
         payload: r
       }))
-      .catch(err => console.log(err));
   }
 }

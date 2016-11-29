@@ -27,19 +27,12 @@ class Layout extends Component{
 
 const mapStateToProps = (state) => {
   return {
-    count: state.count,
     data: state.data
   };
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    increment: (n) => {
-      dispatch(inc(n));
-    },
-    decrement: (n) => {
-      dispatch(dec(n));
-    },
     loadData: () => {
       dispatch(loadData());
     }

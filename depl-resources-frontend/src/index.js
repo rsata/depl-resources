@@ -6,7 +6,8 @@ import Layout from './Layout';
 import store, { history } from './store';
 
 import Deployment from './containers/deployment';
-import Heat from './containers/heat'
+import Heat from './containers/heat';
+import Doc from './components/Doc';
 
 render(
   <Provider store={store}>
@@ -15,6 +16,8 @@ render(
       <Route path='/' component={Layout}>
         <IndexRedirect to='/deployment' />
         <Route path='deployment' component={Deployment} />
+        <Route path='doc/:id' component={Doc} />
+        {/* <Route path='doc/edit/:id' component={docEdit} /> */}
         <Route path='heat' component={Heat} />
       </Route>
     </Router>
