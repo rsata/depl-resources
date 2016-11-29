@@ -34,8 +34,8 @@ function insert() {
     collection.insert({
       id: generateId(),
       lastEdited: moment().format(),
-      type: 'standards',
-      title: '<h1>Standards entry</h1>',
+      type: 'siteBuild',
+      title: '<h1>advanced config entry</h1>',
       entry: 'this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.'
     });
     db.close();

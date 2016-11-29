@@ -7,7 +7,7 @@ import { loadData } from '../actions/initActions';
 
 class Deployment extends React.Component {
 
-  componentWillMount() {
+  componentDidMount() {
     this.props.loadData();
   }
 
@@ -17,7 +17,7 @@ class Deployment extends React.Component {
     return(
       <div>
         <h1>Deployment Page</h1>
-        <div>
+        {/* <div>
           <h1>Site Build</h1>
           <ul>
             {this.props.data.data.map(x => {
@@ -33,7 +33,9 @@ class Deployment extends React.Component {
               return <li key={x._id}><Doc data={x} /></li>
             })}
           </ul>
-        </div>
+        </div> */}
+
+
       </div>
     )
   }

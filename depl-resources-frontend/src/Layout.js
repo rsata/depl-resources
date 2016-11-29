@@ -7,7 +7,6 @@ import { Link } from 'react-router'
 
 export default class Layout extends Component{
   render() {
-    console.log(this.props)
     return (
       <div>
         <h1><Link to="/">BLAAAA</Link></h1>
