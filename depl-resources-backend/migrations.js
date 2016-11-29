@@ -15,25 +15,6 @@ function generateId(){
     return v.toString(16);
 	});
 }
-
-const standards = {
-  _id: generateId(),
-  lastEdited: moment().format(),
-  type: 'standards',
-  title: 'Standards entry',
-  tags: ['tag1, tag2'],
-  entry: 'this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.'
-};
-
-const siteConfig = {
-  _id: generateId(),
-  lastEdited: moment().format(),
-  type: 'siteConfig',
-  title: 'Site config entry',
-  tags: ['tag1, tag2'],
-  entry: 'this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.'
-};
-
 function run() {
   if (command === 'findAll') return findAll();
   if (command === 'findCustom') return findCustom();
