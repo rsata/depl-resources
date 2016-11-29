@@ -52,7 +52,7 @@ function insert() {
     collection.insert({
       _id: generateId(),
       lastEdited: moment().format(),
-      type: 'siteConfig',
+      type: 'standards',
       title: 'Standards entry',
       tags: ['tag1, tag2'],
       entry: 'this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.'
