@@ -6,11 +6,6 @@ import { loadData } from './actions/initActions';
 import { Link } from 'react-router'
 
 class Layout extends Component{
-
-  componentDidMount() {
-
-  }
-
   render() {
     console.log(this.props)
     return (
