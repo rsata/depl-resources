@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router';
-
 import { Doc } from '../components/Doc'
 
-export default class Deployment extends React.Component {
+import { connect } from 'react-redux';
+import { loadData } from '../actions/initActions';
+
+class Deployment extends React.Component {
 
   componentWillMount() {
     this.props.loadData();
@@ -36,3 +38,20 @@ export default class Deployment extends React.Component {
     )
   }
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    data: state.data
+  };
+}
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    loadData: () => {
+      dispatch(loadData());
+    }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Deployment);

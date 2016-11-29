@@ -5,8 +5,8 @@ import { Router, Route, IndexRedirect } from 'react-router';
 import Layout from './Layout';
 import store, { history } from './store';
 
-import Deployment from './containers/deployment';
-import Heat from './containers/heat';
+import Deployment from './containers/Deployment';
+import Heat from './containers/Heat';
 import Doc from './components/Doc';
 
 render(

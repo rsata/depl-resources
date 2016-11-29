@@ -1,11 +1,11 @@
 // import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { inc, dec } from './actions/countActions';
-import { loadData } from './actions/initActions';
+// import { connect } from 'react-redux';
+// import { inc, dec } from './actions/countActions';
+// import { loadData } from './actions/initActions';
 import { Link } from 'react-router'
 
-class Layout extends Component{
+export default class Layout extends Component{
   render() {
     console.log(this.props)
     return (
@@ -23,20 +23,3 @@ class Layout extends Component{
     );
   }
 };
-
-
-const mapStateToProps = (state) => {
-  return {
-    data: state.data
-  };
-}
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadData: () => {
-      dispatch(loadData());
-    }
-  };
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(Layout);
