@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
+// import { Link } from 'react-router';
 
 // This should be a container - gets its value from the state
 
