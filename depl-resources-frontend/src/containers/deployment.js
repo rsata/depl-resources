@@ -17,12 +17,6 @@ let typeToHeaderMapping = {
 
 
 class Deployment extends React.Component {
-
-  // constructor() {
-  //   super();
-  //   let data = this.props.data.data;
-  // }
-
   componentDidMount() {
     this.props.loadData();
   }
@@ -35,10 +29,7 @@ class Deployment extends React.Component {
         <h1>Deployment Page</h1>
         {Object.entries(this.props.deploymentDocs).map(i => {
           console.log(i)
-        })}
-        {Object.keys(this.props.deploymentDocs).map(i => {
-          console.log(typeToHeaderMapping[i]);
-          return <Card title={typeToHeaderMapping[i]} />
+          return <Card key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} />
         })}
       </div>
     )
