@@ -14,13 +14,26 @@ let typeToHeaderMapping = {
 }
 
 class Admin extends React.Component {
+
+  constructor() {
+    super();
+    this.state={
+      toggleAddNew: false
+    }
+  }
+
+  handleToggleAddNew() {
+    this.setState({toggleAddNew: !this.state.toggleAddNew})
+  }
+
   render() {
     console.log(this.props)
     if (!this.props.deploymentDocs) return <div>Loading...</div>
     return(
       <div>
         <h1>Admin</h1>
-        <InsertDoc insertNewDoc={({type, title, url, entry}) => this.props.insertNewDoc({type, title, url, entry})}/>
+        {this.state.toggleAddNew===true ? <InsertDoc insertNewDoc={({type, title, url, entry}) => this.props.insertNewDoc({type, title, url, entry})}/> : null}
+        <button onClick={this.handleToggleAddNew.bind(this)}>{this.state.toggleAddNew===true ? 'Cancel' : 'Add New'}</button>
         <h3>Manage Docs</h3>
         <ul>
         {Object.entries(this.props.deploymentDocs).map(i => {
