@@ -1,9 +1,8 @@
 import React from 'react';
-import { Card } from '../components/Card';
-
 import { connect } from 'react-redux';
 import { loadData } from '../actions/initActions';
 
+import { Card } from '../components/Card';
 
 let typeToHeaderMapping = {
   standards: 'Standards',
