@@ -12,5 +12,6 @@ export function insertNewDoc({type, title, url, entry}) {
         entry
       })
     })
+    // update state? 
   }
 }
