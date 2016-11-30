@@ -22,7 +22,6 @@ class Deployment extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     if (!this.props.deploymentDocs) return <div>Loading...</div>
     return(
       <div>
