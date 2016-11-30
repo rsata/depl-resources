@@ -57,10 +57,37 @@ app.get('/api/data/deployment/get', function(req, res, next) {
   });
 });
 
-app.get('/api/data/deployment/add', function(req, res, next) {
-  console.log('yay');
-  // Document.get(db);
-  // Mongo('insert', 'depl-resources-db', 'resources');
+function generateId(){
+  return 'xxxxxxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+  	// eslint-disable-next-line
+    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+    return v.toString(16);
+	});
+}
+
+app.post('/api/insert', function(req, res, next) {
+  MongoClient.connect(url, (err, db) => {
+    const title = req.body.title;
+    const entry = req.body.entry;
+    const url = req.body.url;
+    const type = req.body.type;
+
+    const collection = db.collection('resources');
+    // something like this...
+    collection.insert({
+      id: generateId(),
+      lastEdited: new Date(),
+      type,
+      title,
+      url,
+      entry
+    }, (err, result) => {
+      if (err) return err;
+      console.log('post success');
+      res.send(result)
+    });
+    db.close();
+  })
 });
 
 app.post('/api/data/deployment/update', function(req, res, next) {
