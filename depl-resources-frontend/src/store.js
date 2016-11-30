@@ -5,11 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import countReducer from './reducers/countReducer';
-import initReducer from './reducers/initReducer';
+import initDeploymentReducer from './reducers/initDeploymentReducer';
 
 const rootReducer = combineReducers({
-  count: countReducer,
-  data: initReducer,
+  // count: countReducer,
+  deploymentDocs: initDeploymentReducer,
   routing: routerReducer
 })
 
