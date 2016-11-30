@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { loadData } from '../actions/initActions';
+import { insertNewDoc } from '../actions/updateDataActions';
 
-import { InsertDoc } from '../components/InsertDoc.js'
+import { InsertDoc } from '../components/InsertDoc'
 
 let typeToHeaderMapping = {
   standards: 'Standards',
@@ -15,11 +15,12 @@ let typeToHeaderMapping = {
 
 class Admin extends React.Component {
   render() {
+    console.log(this.props)
     if (!this.props.deploymentDocs) return <div>Loading...</div>
     return(
       <div>
         <h1>Admin</h1>
-        <InsertDoc />
+        <InsertDoc insertNewDoc={({type, title, url, entry}) => this.props.insertNewDoc({type, title, url, entry})}/>
         <h3>Manage Docs</h3>
         <ul>
         {Object.entries(this.props.deploymentDocs).map(i => {
@@ -40,9 +41,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    // loadData: () => {
-    //   dispatch(loadData());
-    // }
+    insertNewDoc: ({type, title, url, entry}) => {
+      dispatch(insertNewDoc({type, title, url, entry}));
+    }
   };
 }
 

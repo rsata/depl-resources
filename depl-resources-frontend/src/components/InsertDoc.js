@@ -5,12 +5,12 @@ export const InsertDoc = (props) => {
 
   function handleNewDoc(e) {
     e.preventDefault();
-    const type = e.target. type.value;
+    const type = e.target.type.value;
     const title = e.target.title.value;
     const url = e.target.url.value;
     const entry = e.target.entry.value;
-    // props.insertNewDoc({type, title, url, entry})
-    console.log({type, title, url, entry})
+    props.insertNewDoc({type, title, url, entry})
+    // console.log({type, title, url, entry})
   }
 
   return (
