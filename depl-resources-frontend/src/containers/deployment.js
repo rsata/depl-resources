@@ -27,7 +27,6 @@ class Deployment extends React.Component {
       <div>
         <h1>Deployment Page</h1>
         {Object.entries(this.props.deploymentDocs).map(i => {
-          console.log(i)
           return <Card key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} />
         })}
       </div>
