@@ -3,7 +3,7 @@ import React from 'react';
 export const CardItem = (props) => {
   return (
     <div>
-      no link
+      {props.title}
     </div>
   )
 }
