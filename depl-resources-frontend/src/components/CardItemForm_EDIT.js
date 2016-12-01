@@ -9,7 +9,8 @@ export const CardItemEditForm = (props) => {
     const title = e.target.title.value;
     const url = e.target.url.value;
     const entry = e.target.entry.value;
-    props.updateDoc({id, type, title, url, entry});    
+    props.updateDoc({id, type, title, url, entry});
+    props.handleToggleEdit();    
   }
 
   return(
