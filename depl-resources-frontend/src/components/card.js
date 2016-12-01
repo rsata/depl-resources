@@ -4,7 +4,7 @@ import { CardItem } from './CardItem';
 
 export const Card = (props) => {
   return (
-    <div>
+    <li className='DeploymentDisplayCard'>
       <h3>{props.title}</h3>
       <ul>
         {props.data.map(i => {
@@ -12,6 +12,6 @@ export const Card = (props) => {
           return <li key={i.id}><CardItemLink title={i.title} url={i.url} /></li>
         })}
       </ul>
-    </div>
+    </li>
   )
 }
