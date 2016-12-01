@@ -34,8 +34,9 @@ function insert() {
     collection.insert({
       id: generateId(),
       lastEdited: moment().format(),
-      type: 'siteBuild',
-      title: '<h1>advanced config entry</h1>',
+      type: 'siteConfig',
+      title: 'example title',
+      url: '',
       entry: 'this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.  this is sample entry text.'
     });
     db.close();
@@ -60,7 +61,7 @@ function findCustom() {
     assert.equal(null, err);
 
     const collection = db.collection('resources');
-    collection.find({_id: 'f4fa0d73d4acfb1ace40'}).toArray((err, data) => {
+    collection.find({id: 'd00db574cad08f7c7e9c'}).toArray((err, data) => {
       console.log(data);
     });
 

@@ -75,7 +75,7 @@ app.post('/api/insert', function(req, res, next) {
     const collection = db.collection('resources');
     // something like this...
     collection.insert({
-      id: generateId(),
+      id: generateId(), // don't need this.. should be done automatically with _id
       lastEdited: new Date(),
       type,
       title,
@@ -90,18 +90,20 @@ app.post('/api/insert', function(req, res, next) {
   })
 });
 
-app.post('/api/data/deployment/update', function(req, res, next) {
-  const id = req.body.id;
-  const title = req.body.title;
-  const entry = req.body.entry;
-
-  console.log({id, title, entry})
+app.post('/api/update', function(req, res, next) {
   MongoClient.connect(url, (err, db) => {
+    const id = req.body.id;
+    const title = req.body.title;
+    const entry = req.body.entry;
+    const url = req.body.url;
+    const type = req.body.type;
+
     const collection = db.collection('resources');
+    console.log({id, type, title, url, entry})
     // something like this...
-    collection.update({_id: id}, {$set: {title: title, entry: entry}}, (err, result) => {
+    collection.update({id}, {$set: {type, title, url, entry, lastEdited: new Date()}}, (err, result) => {
       if (err) return err;
-      console.log('post success');
+      console.log('update success');
       res.send(result)
     });
   })

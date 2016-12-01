@@ -12,6 +12,25 @@ export function insertNewDoc({type, title, url, entry}) {
         entry
       })
     })
-    // update state? 
+    // update state?
+  }
+}
+
+export function updateDoc({id, type, title, url, entry}) {
+  return (dispatch) => {
+    fetch('http://localhost:3001/api/update', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id,
+        type,
+        title,
+        url,
+        entry
+      })
+    })
+    // update state?
   }
 }
