@@ -14,11 +14,11 @@ export const CardItemEditForm = (props) => {
         <option value="siteBuild">Site Build</option>
       </select>
       <h3>Title</h3>
-      <input type='text' name='title'/>
+      <input type='text' name='title' defaultValue={props.data.title} />
       <h3>External URL (if applicable)</h3>
-      <input type='text' name='url' />
+      <input type='text' name='url' defaultValue={props.data.url} />
       <h3>Entry (leave blank if external URL)</h3>
-      <textarea name='entry'/>
+      <textarea name='entry' defaultValue={props.data.entry} />
       <br />
       <button type='submit'>Submit</button>
       </form>
