@@ -4,6 +4,7 @@ import { loadData } from '../actions/initActions';
 
 import { Card } from '../components/Card';
 
+// Eventually, make dynamic so can add new cards without touching this
 let typeToHeaderMapping = {
   standards: 'Standards',
   siteConfig: 'Site Configuration',
@@ -24,7 +25,7 @@ class Deployment extends React.Component {
     return(
       <div>
         <h1>Deployment Page</h1>
-        <ul>
+        <ul className='cardList'>
           {Object.entries(this.props.deploymentDocs).map(i => {
             return <Card key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} />
           })}

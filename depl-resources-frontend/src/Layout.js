@@ -1,9 +1,7 @@
 // import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
-// import { connect } from 'react-redux';
-// import { inc, dec } from './actions/countActions';
-// import { loadData } from './actions/initActions';
 import { Link } from 'react-router'
+import './main.css';
 
 export default class Layout extends Component{
   render() {
