@@ -14,7 +14,9 @@ export class CardItemEdit extends React.Component {
   }
 
   handleDelete() {
-    console.log('delete placeholder')
+    const id = this.props.data.id;
+    const type = this.props.data.type;
+    this.props.removeDoc({id, type});
   }
 
   handleEditFormSubmit(e) {

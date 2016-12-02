@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { insertNewDoc, updateDocs } from '../actions/updateDocsActions';
+import { insertNewDoc, updateDocs, removeDoc } from '../actions/updateDocsActions';
 import { loadData } from '../actions/initActions';
 
 import { InsertDoc } from '../components/InsertDoc'
@@ -43,7 +43,7 @@ class Admin extends React.Component {
         <h3>Manage Docs</h3>
         <ul>
         {Object.entries(this.props.deploymentDocs).map(i => {
-          return <CardEdit key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} updateDocs={({id, type, title, url, entry}) => this.props.updateDocs({id, type, title, url, entry})} />
+          return <CardEdit key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} updateDocs={({id, type, title, url, entry}) => this.props.updateDocs({id, type, title, url, entry})} removeDoc={({id, type}) => this.props.removeDoc({id, type})} />
         })}
         </ul>
       </div>
@@ -65,6 +65,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateDocs: ({id, type, title, url, entry}) => {
       dispatch(updateDocs({id, type, title, url, entry}));
+    },
+    removeDoc: ({id, type}) => {
+      dispatch(removeDoc({id, type}));
     },
     loadData: () => {
       dispatch(loadData());

@@ -8,11 +8,6 @@ const MongoQuery = require('./mongo');
 
 app.use('/*', function (req, res, next) {
 
-  // var allowedOrigins = ['http://bewildered-eye.surge.sh'];
-  // var origin = req.headers.origin;
-  // if(allowedOrigins.indexOf(origin) > -1){
-  //      res.setHeader('Access-Control-Allow-Origin', origin);
-  // }
   // Website you wish to allow to connect
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
@@ -104,6 +99,21 @@ app.post('/api/update', function(req, res, next) {
     collection.update({id}, {$set: {type, title, url, entry, lastEdited: new Date()}}, (err, result) => {
       if (err) return err;
       console.log('update success');
+      res.send(result)
+    });
+  })
+});
+
+app.delete('/api/delete', function(req, res, next) {
+  MongoClient.connect(url, (err, db) => {
+    const id = req.body.id;
+
+    const collection = db.collection('resources');
+    console.log({id})
+    // something like this...
+    collection.remove({id}, (err, result) => {
+      if (err) return err;
+      console.log('remove success');
       res.send(result)
     });
   })

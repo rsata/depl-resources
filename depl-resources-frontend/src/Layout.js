@@ -15,12 +15,16 @@ const styles = {
 export default class Layout extends Component{
   render() {
     return (
-      <div style={styles.headerWrapper}>
-        <Nav />
-        <SearchExternal />
-        {/* We use cloneElement here so we can auto pass down props */}
-        {/* Essentially each element is getting cloned with its own props so children of it can call this.props */}
-        { React.cloneElement(this.props.children, this.props) }
+      <div>
+        <div style={styles.headerWrapper}>
+          <Nav />
+          <SearchExternal />
+        </div>
+        <div className='pageWrapper'>
+          {/* We use cloneElement here so we can auto pass down props */}
+          {/* Essentially each element is getting cloned with its own props so children of it can call this.props */}
+          { React.cloneElement(this.props.children, this.props) }
+        </div>
       </div>
     );
   }

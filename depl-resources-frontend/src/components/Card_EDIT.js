@@ -7,7 +7,7 @@ export const CardEdit = (props) => {
       <h3>{props.title}</h3>
       <ul>
         {props.data.map(i => {
-          return <CardItemEdit key={i.id} title={i.title} data={i} updateDocs={props.updateDocs} />
+          return <CardItemEdit key={i.id} title={i.title} data={i} updateDocs={props.updateDocs} removeDoc={props.removeDoc} />
         })}
       </ul>
     </div>

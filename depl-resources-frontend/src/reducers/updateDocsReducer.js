@@ -22,7 +22,7 @@ const updateDocsReducer = (state={}, action) => {
         siteBuild
       }
 
-    case 'UPDATE_DOCS':
+    case 'UPDATE_DOCS_UPDATE':
       const stateItemArray = state[action.payload.type];
       var index = stateItemArray.map(function(el) {
         return el.id;
@@ -31,13 +31,25 @@ const updateDocsReducer = (state={}, action) => {
       return state = {
         ...state,
         [action.payload.type]: [
-          // ...stateItemArray,
-          // [index]: action.payload
           ...stateItemArray.slice(0, index),
           action.payload,
           ...stateItemArray.slice(index + 1)
         ]
       }
+
+      case 'UPDATE_DOCS_DELETE':
+        const stateItemDeleteArray = state[action.payload.type];
+        var index = stateItemDeleteArray.map(function(el) {
+          return el.id;
+        }).indexOf(action.payload.id);
+
+        return state = {
+          ...state,
+          [action.payload.type]: [
+            ...stateItemDeleteArray.slice(0, index),
+            ...stateItemDeleteArray.slice(index + 1)
+          ]
+        }
 
     default: {
       return {
