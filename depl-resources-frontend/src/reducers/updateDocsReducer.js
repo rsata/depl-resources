@@ -24,30 +24,30 @@ const updateDocsReducer = (state={}, action) => {
 
     case 'UPDATE_DOCS_UPDATE':
       const stateItemArray = state[action.payload.type];
-      var index = stateItemArray.map(function(el) {
+      var updateIndex = stateItemArray.map(function(el) {
         return el.id;
       }).indexOf(action.payload.id);
 
       return state = {
         ...state,
         [action.payload.type]: [
-          ...stateItemArray.slice(0, index),
+          ...stateItemArray.slice(0, updateIndex),
           action.payload,
-          ...stateItemArray.slice(index + 1)
+          ...stateItemArray.slice(updateIndex + 1)
         ]
       }
 
       case 'UPDATE_DOCS_DELETE':
         const stateItemDeleteArray = state[action.payload.type];
-        var index = stateItemDeleteArray.map(function(el) {
+        var deleteIndex = stateItemDeleteArray.map(function(el) {
           return el.id;
         }).indexOf(action.payload.id);
 
         return state = {
           ...state,
           [action.payload.type]: [
-            ...stateItemDeleteArray.slice(0, index),
-            ...stateItemDeleteArray.slice(index + 1)
+            ...stateItemDeleteArray.slice(0, deleteIndex),
+            ...stateItemDeleteArray.slice(deleteIndex + 1)
           ]
         }
 
