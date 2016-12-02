@@ -16,7 +16,7 @@ export function insertNewDoc({type, title, url, entry}) {
   }
 }
 
-export function updateDoc({id, type, title, url, entry}) {
+export function updateDocs({id, type, title, url, entry}) {
   return (dispatch) => {
     fetch('http://localhost:3001/api/update', {
       method: 'POST',
@@ -30,7 +30,11 @@ export function updateDoc({id, type, title, url, entry}) {
         url,
         entry
       })
-    })
-    // update state?
+    }).then(
+      dispatch({
+        type: 'UPDATE_DOCS',
+        payload: {id, type, title, url, entry}
+      })
+    )
   }
 }

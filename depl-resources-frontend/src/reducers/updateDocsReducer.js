@@ -1,6 +1,6 @@
 const updateDocsReducer = (state={}, action) => {
   switch(action.type) {
-    case 'UPDATE_DOCS':
+    case 'LOAD_DATA':
       let standards = [];
       let siteConfig = [];
       let advancedConfig = [];
@@ -13,7 +13,7 @@ const updateDocsReducer = (state={}, action) => {
         if (i.type==='mapLoading') mapLoading.push(i);
         if (i.type==='siteBuild') siteBuild.push(i);
       })
-      state = {
+      return state = {
         ...state,
         standards,
         siteConfig,
@@ -21,7 +21,23 @@ const updateDocsReducer = (state={}, action) => {
         mapLoading,
         siteBuild
       }
-      break;
+
+    case 'UPDATE_DOCS':
+      const stateItemArray = state[action.payload.type];
+      var index = stateItemArray.map(function(el) {
+        return el.id;
+      }).indexOf(action.payload.id);
+
+      return state = {
+        ...state,
+        [action.payload.type]: [
+          // ...stateItemArray,
+          // [index]: action.payload
+          ...stateItemArray.slice(0, index),
+          action.payload,
+          ...stateItemArray.slice(index + 1)
+        ]
+      }
 
     default: {
       return {
@@ -29,7 +45,6 @@ const updateDocsReducer = (state={}, action) => {
       }
     }
   }
-  return state;
 }
 
-export default initReducer;
+export default updateDocsReducer;

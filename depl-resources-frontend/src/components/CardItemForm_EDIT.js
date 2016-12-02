@@ -2,21 +2,21 @@ import React from 'react';
 
 export const CardItemEditForm = (props) => {
 
-  function handleUpdateDoc(e) {
+  function handleUpdateDocs(e) {
     e.preventDefault();
     const id = props.data.id;
     const type = e.target.type.value;
     const title = e.target.title.value;
     const url = e.target.url.value;
     const entry = e.target.entry.value;
-    props.updateDoc({id, type, title, url, entry});
-    props.handleToggleEdit();    
+    props.updateDocs({id, type, title, url, entry});
+    props.handleToggleEdit();
   }
 
   return(
     <div>
       <h2>Insert new document (defaults to depl team for now...)</h2>
-      <form onSubmit={handleUpdateDoc.bind(this)}>
+      <form onSubmit={handleUpdateDocs.bind(this)}>
       <select name='type'>
         <option value="standards">Standards</option>
         <option value="siteConfig">Site Configuration</option>

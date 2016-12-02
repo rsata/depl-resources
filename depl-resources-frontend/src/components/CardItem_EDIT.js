@@ -11,7 +11,10 @@ export class CardItemEdit extends React.Component {
 
   handleToggleEdit() {
     this.setState({toggleEdit: !this.state.toggleEdit})
-    console.log(this.props)
+  }
+
+  handleDelete() {
+    console.log('delete placeholder')
   }
 
   handleEditFormSubmit(e) {
@@ -23,8 +26,9 @@ export class CardItemEdit extends React.Component {
     return (
       <li>
         {this.props.title}
-        {this.state.toggleEdit===true ? <CardItemEditForm data={this.props.data} updateDoc={this.props.updateDoc} handleToggleEdit={this.handleToggleEdit.bind(this)} /> : null}
+        {this.state.toggleEdit===true ? <CardItemEditForm data={this.props.data} updateDocs={this.props.updateDocs} handleToggleEdit={this.handleToggleEdit.bind(this)} /> : null}
         <button onClick={this.handleToggleEdit.bind(this)}>{this.state.toggleEdit===true ? 'Cancel' : 'Edit'}</button>
+        <button onClick={this.handleDelete.bind(this)}>x</button>
       </li>
     )
   }

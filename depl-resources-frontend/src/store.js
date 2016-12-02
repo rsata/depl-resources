@@ -4,11 +4,10 @@ import { browserHistory } from 'react-router';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
-import initDeploymentReducer from './reducers/initDeploymentReducer';
+import updateDocsReducer from './reducers/updateDocsReducer';
 
 const rootReducer = combineReducers({
-  // count: countReducer,
-  deploymentDocs: initDeploymentReducer,
+  deploymentDocs: updateDocsReducer,
   routing: routerReducer
 })
 

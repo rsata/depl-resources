@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { insertNewDoc, updateDoc } from '../actions/updateDataActions';
+import { insertNewDoc, updateDocs } from '../actions/updateDocsActions';
 import { loadData } from '../actions/initActions';
 
 import { InsertDoc } from '../components/InsertDoc'
@@ -35,7 +35,7 @@ class Admin extends React.Component {
   render() {
     if (!this.props.deploymentDocs) return <div>Loading...</div>
     return(
-      <div>
+      <div className='adminPageWrapper'>
         <h1>Admin</h1>
         {this.state.toggleAddNew===true ? <InsertDoc insertNewDoc={({type, title, url, entry}) => this.props.insertNewDoc({type, title, url, entry})} /> : null}
         <button onClick={this.handleToggleAddNew.bind(this)}>{this.state.toggleAddNew===true ? 'Cancel' : 'Add New'}</button>
@@ -43,7 +43,7 @@ class Admin extends React.Component {
         <h3>Manage Docs</h3>
         <ul>
         {Object.entries(this.props.deploymentDocs).map(i => {
-          return <CardEdit key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} updateDoc={({id, type, title, url, entry}) => this.props.updateDoc({id, type, title, url, entry})} />
+          return <CardEdit key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} updateDocs={({id, type, title, url, entry}) => this.props.updateDocs({id, type, title, url, entry})} />
         })}
         </ul>
       </div>
@@ -63,8 +63,8 @@ const mapDispatchToProps = (dispatch) => {
     insertNewDoc: ({type, title, url, entry}) => {
       dispatch(insertNewDoc({type, title, url, entry}));
     },
-    updateDoc: ({id, type, title, url, entry}) => {
-      dispatch(updateDoc({id, type, title, url, entry}));
+    updateDocs: ({id, type, title, url, entry}) => {
+      dispatch(updateDocs({id, type, title, url, entry}));
     },
     loadData: () => {
       dispatch(loadData());
