@@ -73,6 +73,16 @@ ul {
 
 
 
+/*.searchPopupResult {*/
+  /*-webkit-clip-path: inset(40% 0 0 0);
+  clip-path: inset(40% 0 0 0);*/
+#yo {
+  left: 400px;
+  top: 200px;
+  width: 353px;
+  height: 600px;
+  position: absolute;
+}
 
 
 
