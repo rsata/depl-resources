@@ -10,10 +10,6 @@ export class SearchStandardsID extends React.Component{
     }
   }
 
-  componentDidMount() {
-    window.addEventListener('mousedown', this.handlePageClick.bind(this));
-  }
-
   handlePageClick() {
     this.setState({renderSearchResults: false})
   }
@@ -36,16 +32,22 @@ export class SearchStandardsID extends React.Component{
         <form onSubmit={this.submitSearchStandardsID.bind(this)}>
           <input type='text' className='searchBox' name='searchStandardsID' placeholder='Lookup standards district ID' onChange={this.handleSearchStandardsIDInputChange.bind(this)} />
         </form>
-        {this.state.renderSearchResults===true ? <StandardsIDSearchResults query={this.state.query} /> : null}
+        {this.state.renderSearchResults===true ? <SearchResultsModal query={this.state.query} handlePageClick={this.handlePageClick.bind(this)} /> : null}
       </div>
     )
   }
 }
 
-const StandardsIDSearchResults = (props) => {
+const SearchResultsModal = (props) => {
   return (
-    <div id='yo'>
-      <iframe width="100%" height="100%" className='searchPopupResult' src={'https://fs.rubicon.com/Internal/Standards/SetEditor/View/Default?GlobalSearch=&OrderBy=&OrderDirection=&DistrictNameQuery=' + props.query} frameBorder="0"></iframe>
+    <div className='searchResultsModal'>
+      <div className='searchResultsModalWrapper'>
+        <h1>Search Results</h1>
+        <button onClick={props.handlePageClick} className='searchResultsCloseButton'>X</button>
+        <div>
+          <iframe className='searchResultsModalPopup' src={'https://fs.rubicon.com/Internal/Standards/SetEditor/View/Default?GlobalSearch=&OrderBy=&OrderDirection=&DistrictNameQuery=' + props.query} frameBorder="0"></iframe>
+        </div>
+      </div>
     </div>
   )
 }

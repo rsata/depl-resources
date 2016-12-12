@@ -80,16 +80,39 @@ ul {
 
 
 
-/*.searchPopupResult {*/
-  /*-webkit-clip-path: inset(40% 0 0 0);
-  clip-path: inset(40% 0 0 0);*/
-#yo {
-  left: 400px;
-  top: 200px;
-  width: 353px;
+
+
+
+
+
+.searchResultsModal {
+  width: 600px;
   height: 600px;
-  position: absolute;
+  background-color: #fff;
+  padding: 36px;
+  position: fixed;
+  border: 2px #000 solid;
+  top: 13%;
+  right: 0;
+  left: 0;
+  margin-right: auto;
+  margin-left: auto;
 }
+
+.searchResultsModalPopup {
+  width: 100%;
+  height: 560px; /*sketchy*/
+}
+
+.searchResultsCloseButton {
+  position: absolute;
+  right: 17px;
+  top: 10px;
+  border: none;
+  background: none;
+  font-size: 2.5em;
+}
+
 
 
 
