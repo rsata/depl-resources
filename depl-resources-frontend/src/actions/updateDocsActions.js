@@ -40,6 +40,8 @@ export function updateDocs({id, type, title, url, entry}) {
 }
 
 export function removeDoc({id, type}) {
+  let confirm = window.confirm('Are you sure you want to delete?');
+  if (!confirm) return null;
   return (dispatch) => {
     fetch('http://localhost:3001/api/delete', {
       method: 'DELETE',
