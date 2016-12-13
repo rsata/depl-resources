@@ -32,9 +32,3 @@ export default class Layout extends Component{
     );
   }
 };
-
-// global search
-// https://fs.rubicon.com/i/adminsite/global_search.php?GlobalSearch=hogwarts
-
-// Standards
-// https://hogwarts.rubiconatlas.org/Atlas/References/Standards/View/Default?tab=17&TabName=Standards&FromReferences=1&ShowKey=1&AllStatuses=1&DistrictID=422&StandardsName=Alabama&
