@@ -51,7 +51,6 @@ class Resource extends React.Component {
   // }
 
   render() {
-    console.log('render', this.props);
     if (Object.keys(this.props.data).length === 0) return <div>Loading...</div>
     return(
       <div>
