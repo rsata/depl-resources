@@ -22,34 +22,7 @@ class Resource extends React.Component {
       this.props.loadData()
     };
   }
-
-  // componentDidMount() {
-  //   if (this.state.data) {
-  //     const type = this.props.params.type;
-  //     const id = this.props.params.id;
-  //     const data = this.props.data;
-  //     this.setState({
-  //       data: data[type].find((el) => {return el.id === id})
-  //     });
-  //   }
-  // }
-
-  // componentDidMount() {
-  //   this.setState({data: this.props.data})
-  // }
-
-  // componentWillReceiveProps() {
-  //   if (Object.keys(this.props.data).length !== 0) {
-  //     const type = this.props.params.type;
-  //     const id = this.props.params.id;
-  //     const data = this.props.data;
-  //     this.setState({
-  //       data: data[type].find((el) => {return el.id === id})
-  //     });
-  //     console.log('will rec',this.props)
-  //   }
-  // }
-
+  
   render() {
     if (Object.keys(this.props.data).length === 0) return <div>Loading...</div>
     return(
