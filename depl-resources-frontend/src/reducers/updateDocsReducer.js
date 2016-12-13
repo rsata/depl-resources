@@ -12,7 +12,7 @@ const updateDocsReducer = (state={}, action) => {
         if (i.type==='advancedConfig') advancedConfig.push(i);
         if (i.type==='mapLoading') mapLoading.push(i);
         if (i.type==='siteBuild') siteBuild.push(i);
-      })
+      });
       return state = {
         ...state,
         standards,
@@ -20,7 +20,7 @@ const updateDocsReducer = (state={}, action) => {
         advancedConfig,
         mapLoading,
         siteBuild
-      }
+      };
 
     case 'UPDATE_DOCS_UPDATE':
       const stateItemArray = state[action.payload.type];
@@ -35,7 +35,7 @@ const updateDocsReducer = (state={}, action) => {
           action.payload,
           ...stateItemArray.slice(updateIndex + 1)
         ]
-      }
+      };
 
       case 'UPDATE_DOCS_DELETE':
         const stateItemDeleteArray = state[action.payload.type];
@@ -49,14 +49,14 @@ const updateDocsReducer = (state={}, action) => {
             ...stateItemDeleteArray.slice(0, deleteIndex),
             ...stateItemDeleteArray.slice(deleteIndex + 1)
           ]
-        }
+        };
 
     default: {
       return {
         ...state
-      }
+      };
     }
   }
-}
+};
 
 export default updateDocsReducer;

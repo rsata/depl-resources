@@ -11,7 +11,7 @@ import { browserHistory } from 'react-router';
 // export default createStore(reducer, middleware)
 
 
-import reducer from './reducers/index'
+import reducer from './reducers/index';
 
 const posts = [
   {
@@ -28,7 +28,7 @@ const posts = [
     title: 'sample post 2',
     type: 'standards'
   }
-]
+];
 
 const dep = 0;
 const heat = 0;

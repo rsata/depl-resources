@@ -4,4 +4,4 @@ import depl from './deploymentReducer';
 
 export default combineReducers({
   depl
-})
+});

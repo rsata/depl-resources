@@ -15,12 +15,12 @@ export function increment(index) {
   return {
     type: 'INCREMENT',
     index
-  }
+  };
 }
 
 export function decrement(index) {
   return {
     type: 'DECREMENT',
     index
-  }
+  };
 }

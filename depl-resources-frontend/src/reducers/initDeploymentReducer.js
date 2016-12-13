@@ -12,7 +12,7 @@ const initReducer = (state={}, action) => {
         if (i.type==='advancedConfig') advancedConfig.push(i);
         if (i.type==='mapLoading') mapLoading.push(i);
         if (i.type==='siteBuild') siteBuild.push(i);
-      })
+      });
       state = {
         ...state,
         standards,
@@ -20,16 +20,16 @@ const initReducer = (state={}, action) => {
         advancedConfig,
         mapLoading,
         siteBuild
-      }
+      };
       break;
 
     default: {
       return {
         ...state
-      }
+      };
     }
   }
   return state;
-}
+};
 
 export default initReducer;

@@ -10,7 +10,7 @@ const styles = {
   headerWrapper: {
     width: '100%'
   }
-}
+};
 
 export default class Layout extends Component{
   render() {

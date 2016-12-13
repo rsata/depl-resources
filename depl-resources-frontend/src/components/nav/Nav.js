@@ -14,7 +14,7 @@ export class Nav extends React.Component {
     super();
     this.state = {
       toggleSideNav: false
-    }
+    };
 
     document.addEventListener('keydown', (e) => {
       if (e.keyCode === 27) {
@@ -45,6 +45,6 @@ export class Nav extends React.Component {
           <TeamMenu />
         </ul>
       </div>
-    )
+    );
   }
 }

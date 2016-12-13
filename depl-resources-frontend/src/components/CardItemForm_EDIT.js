@@ -34,5 +34,5 @@ export const CardItemEditForm = (props) => {
       <button type='submit'>Submit</button>
       </form>
     </div>
-  )
-}
+  );
+};

@@ -12,5 +12,5 @@ export const SideNav = (props) => {
         <li><a href='https://fs.rubicon.com/Rubicon%20Underground/Default.htm#Chancellor of the Exchequer/Individual Time Analysis.htm%3FTocPath%3DChancellor%2520of%2520the%2520Exchequer%7C_____4' target="_blank">Big Brother</a></li>
       </ul>
     </div>
-  )
-}
+  );
+};

@@ -5,5 +5,5 @@ export const CardItemLink = (props) => {
     <div>
       <a href={props.url} target='_blank'>{props.title}</a>
     </div>
-  )
-}
+  );
+};

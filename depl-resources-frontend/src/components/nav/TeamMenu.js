@@ -7,5 +7,5 @@ export const TeamMenu = (props) => {
       <Link to='/deployment'>Deployment</Link>
       <Link to='/admin'>Admin</Link>
     </li>
-  )
-}
+  );
+};

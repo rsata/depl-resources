@@ -11,9 +11,9 @@ export function insertNewDoc({type, title, url, entry}) {
         url,
         entry
       })
-    })
+    });
     // update state?
-  }
+  };
 }
 
 export function updateDocs({id, type, title, url, entry}) {
@@ -35,8 +35,8 @@ export function updateDocs({id, type, title, url, entry}) {
         type: 'UPDATE_DOCS_UPDATE',
         payload: {id, type, title, url, entry}
       })
-    )
-  }
+    );
+  };
 }
 
 export function removeDoc({id, type}) {
@@ -56,6 +56,6 @@ export function removeDoc({id, type}) {
         type: 'UPDATE_DOCS_DELETE',
         payload: {id, type}
       })
-    )
-  }
+    );
+  };
 }

@@ -8,5 +8,5 @@ export const CardItem = (props) => {
     <div>
       <Link to={`resource/${props.data.type}/${props.data.id}`}>{props.title}</Link>
     </div>
-  )
-}
+  );
+};
