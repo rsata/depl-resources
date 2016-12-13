@@ -8,6 +8,7 @@ import store, { history } from './store';
 import Deployment from './containers/Deployment';
 import Heat from './containers/Heat';
 import Admin from './containers/Admin';
+import Resource from './containers/Resource';
 
 render(
   <Provider store={store}>
@@ -16,6 +17,7 @@ render(
       <Route path='/' component={Layout}>
         <IndexRedirect to='/deployment' />
         <Route path='deployment' component={Deployment} />
+        <Route path='resource/:type/:id' component={Resource} />
         <Route path='heat' component={Heat} />
         <Route path='admin' component={Admin} />
       </Route>
