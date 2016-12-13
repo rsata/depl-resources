@@ -15,10 +15,20 @@ export class Nav extends React.Component {
     this.state = {
       toggleSideNav: false
     }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.keyCode === 27) {
+        this.handleEscKey();
+      }
+    });
   }
 
   handleOpenSideNav() {
-    this.setState({toggleSideNav: !this.state.toggleSideNav})
+    this.setState({toggleSideNav: !this.state.toggleSideNav});
+  }
+
+  handleEscKey() {
+    this.setState({toggleSideNav: false});
   }
 
   render() {
