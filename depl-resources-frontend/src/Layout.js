@@ -1,6 +1,6 @@
 // import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
-import './main.css';
+// import './main.css';
 
 import { Nav } from './components/nav/Nav';
 import { Footer } from './components/footer/Footer';
