@@ -1,8 +1,10 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './sideNav.scss';
 
-export const SideNav = (props) => {
+const SideNav = (props) => {
   return (
-    <div className='sideNav'>
+    <div styleName='sideNav'>
       <h1>hello</h1>
       {/* This is a placeholder until add this list to db and admins can make changes */}
       <ul>
@@ -14,3 +16,5 @@ export const SideNav = (props) => {
     </div>
   );
 };
+
+export default CSSModules(SideNav, styles);

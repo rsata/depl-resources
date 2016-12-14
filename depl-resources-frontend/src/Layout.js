@@ -1,22 +1,16 @@
 // import { bindActionCreators } from 'redux';
 import React, { Component } from 'react';
-// import './main.css';
+import './main.css';
 
-import { Nav } from './components/nav/Nav';
+import Nav from './components/nav/Nav';
 import { Footer } from './components/footer/Footer';
 import { SearchExternal } from './components/searchExternal/SearchExternal';
-
-const styles = {
-  headerWrapper: {
-    width: '100%'
-  }
-};
 
 export default class Layout extends Component{
   render() {
     return (
       <div>
-        <div style={styles.headerWrapper}>
+        <div>
           <Nav />
           <SearchExternal />
         </div>
