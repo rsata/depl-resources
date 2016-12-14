@@ -105,13 +105,7 @@ module.exports = {
           'sass?sourceMap'
         ]
       },
-
-      // {
-      //   test: /\.css$/,
-      //   // loader: ExtractTextPlugin.extract('style', 'css?modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]')
-      //   loader: 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]'
-      // },
-
+      
       /***** End additional loaders *****/
 
 
