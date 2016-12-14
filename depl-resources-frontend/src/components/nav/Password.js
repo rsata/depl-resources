@@ -5,5 +5,5 @@ export const Password = (props) => {
     <li className='navPassword topBar'>
       <div>Tgiving-16</div>
     </li>
-  )
-}
+  );
+};

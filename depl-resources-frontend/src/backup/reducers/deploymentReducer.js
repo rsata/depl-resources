@@ -52,7 +52,7 @@ export default function increment(state=[], action) {
   // return state;
   switch(action.type) {
     case 'INCREMENT': {
-      return {...state, count: 1}
+      return {...state, count: 1};
     }
   }
 }

@@ -20,10 +20,10 @@ function run() {
   if (command === 'findCustom') return findCustom();
   if (command === 'removeAll') return removeAll();
   if (command === 'insert') return insert();
-  return console.log('enter a valid command, stupid')
+  return console.log('enter a valid command, stupid');
 }
 
-run()
+run();
 
 function insert() {
   MongoClient.connect(url, function(err, db) {
@@ -74,7 +74,7 @@ function removeAll() {
     assert.equal(null, err);
 
     const collection = db.collection('resources');
-    collection.remove({})
+    collection.remove({});
 
     db.close();
   });

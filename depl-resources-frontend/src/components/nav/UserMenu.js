@@ -5,5 +5,5 @@ export const UserMenu = (props) => {
     <li className='navUserMenu topBar'>
       <div>Username</div>
     </li>
-  )
-}
+  );
+};

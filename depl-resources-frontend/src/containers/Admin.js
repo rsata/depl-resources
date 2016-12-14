@@ -3,8 +3,8 @@ import { connect } from 'react-redux';
 import { insertNewDoc, updateDocs, removeDoc } from '../actions/updateDocsActions';
 import { loadData } from '../actions/initActions';
 
-import { InsertDoc } from '../components/InsertDoc'
-import { CardEdit } from '../components/Card_EDIT'
+import { InsertDoc } from '../components/InsertDoc';
+import { CardEdit } from '../components/Card_EDIT';
 
 let typeToHeaderMapping = {
   standards: 'Standards',
@@ -13,7 +13,7 @@ let typeToHeaderMapping = {
   mapLoading: 'Map Loading',
   siteBuild: 'Site Build',
   pleiades: 'Pleiades'
-}
+};
 
 class Admin extends React.Component {
 
@@ -21,7 +21,7 @@ class Admin extends React.Component {
     super();
     this.state={
       toggleAddNew: false
-    }
+    };
   }
 
   componentDidMount() {
@@ -29,11 +29,11 @@ class Admin extends React.Component {
   }
 
   handleToggleAddNew() {
-    this.setState({toggleAddNew: !this.state.toggleAddNew})
+    this.setState({toggleAddNew: !this.state.toggleAddNew});
   }
 
   render() {
-    if (!this.props.deploymentDocs) return <div>Loading...</div>
+    if (!this.props.deploymentDocs) return <div>Loading...</div>;
     return(
       <div className='adminPageWrapper'>
         <h1>Admin</h1>
@@ -43,11 +43,11 @@ class Admin extends React.Component {
         <h3>Manage Docs</h3>
         <ul>
         {Object.entries(this.props.deploymentDocs).map(i => {
-          return <CardEdit key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} updateDocs={({id, type, title, url, entry}) => this.props.updateDocs({id, type, title, url, entry})} removeDoc={({id, type}) => this.props.removeDoc({id, type})} />
+          return <CardEdit key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} updateDocs={({id, type, title, url, entry}) => this.props.updateDocs({id, type, title, url, entry})} removeDoc={({id, type}) => this.props.removeDoc({id, type})} />;
         })}
         </ul>
       </div>
-    )
+    );
   }
 }
 
@@ -56,7 +56,7 @@ const mapStateToProps = (state) => {
   return {
     deploymentDocs: state.deploymentDocs
   };
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -73,6 +73,6 @@ const mapDispatchToProps = (dispatch) => {
       dispatch(loadData());
     }
   };
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Admin);

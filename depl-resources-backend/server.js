@@ -79,10 +79,10 @@ app.post('/api/insert', function(req, res, next) {
     }, (err, result) => {
       if (err) return err;
       console.log('post success');
-      res.send(result)
+      res.send(result);
     });
     db.close();
-  })
+  });
 });
 
 app.post('/api/update', function(req, res, next) {
@@ -94,14 +94,14 @@ app.post('/api/update', function(req, res, next) {
     const type = req.body.type;
 
     const collection = db.collection('resources');
-    console.log({id, type, title, url, entry})
+    console.log({id, type, title, url, entry});
     // something like this...
     collection.update({id}, {$set: {type, title, url, entry, lastEdited: new Date()}}, (err, result) => {
       if (err) return err;
       console.log('update success');
-      res.send(result)
+      res.send(result);
     });
-  })
+  });
 });
 
 app.delete('/api/delete', function(req, res, next) {
@@ -109,14 +109,14 @@ app.delete('/api/delete', function(req, res, next) {
     const id = req.body.id;
 
     const collection = db.collection('resources');
-    console.log({id})
+    console.log({id});
     // something like this...
     collection.remove({id}, (err, result) => {
       if (err) return err;
       console.log('remove success');
-      res.send(result)
+      res.send(result);
     });
-  })
+  });
 });
 
 app.listen(process.env.PORT || 3001);

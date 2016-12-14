@@ -5,6 +5,6 @@ export function loadData() {
       .then(r => dispatch({
         type: 'LOAD_DATA',
         payload: r
-      }))
-  }
+      }));
+  };
 }

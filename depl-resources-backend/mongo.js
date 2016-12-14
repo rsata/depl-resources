@@ -18,10 +18,10 @@ const data = undefined;
 const MongoQuery = (doQuery) => {
   // console.log(data);
   return data;
-}
+};
 
 function doQuery(type, dbName, collectionName) {
-  console.log('shit')
+  console.log('shit');
   const url = 'mongodb://localhost:27017/' + dbName;
 
   MongoClient.connect(url, function(err, db) {
@@ -31,7 +31,7 @@ function doQuery(type, dbName, collectionName) {
 
     collection.find({}, (err, result) => {
       data = result;
-    })
+    });
     db.close();
   });
 }

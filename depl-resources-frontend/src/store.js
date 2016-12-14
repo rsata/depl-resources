@@ -9,7 +9,7 @@ import updateDocsReducer from './reducers/updateDocsReducer';
 const rootReducer = combineReducers({
   deploymentDocs: updateDocsReducer,
   routing: routerReducer
-})
+});
 
 const store = createStore(
   rootReducer,

@@ -8,7 +8,7 @@ const rootReducer = combineReducers({
   dep,
   heat,
   routing: routerReducer
-})
+});
 
 export default rootReducer;
 

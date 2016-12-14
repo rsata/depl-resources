@@ -6,11 +6,11 @@ export class CardItemEdit extends React.Component {
     super();
     this.state={
       toggleEdit: false
-    }
+    };
   }
 
   handleToggleEdit() {
-    this.setState({toggleEdit: !this.state.toggleEdit})
+    this.setState({toggleEdit: !this.state.toggleEdit});
   }
 
   handleDelete() {
@@ -21,7 +21,7 @@ export class CardItemEdit extends React.Component {
 
   handleEditFormSubmit(e) {
     e.preventDefault();
-    console.log('submitted')
+    console.log('submitted');
   }
 
   render(){
@@ -32,6 +32,6 @@ export class CardItemEdit extends React.Component {
         <button onClick={this.handleToggleEdit.bind(this)}>{this.state.toggleEdit===true ? 'Cancel' : 'Edit'}</button>
         <button onClick={this.handleDelete.bind(this)}>x</button>
       </li>
-    )
+    );
   }
 }

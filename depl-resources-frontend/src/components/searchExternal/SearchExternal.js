@@ -14,7 +14,7 @@ const styles = {
   searchWrapper: {
     width: '70%'
   }
-}
+};
 
 export const SearchExternal = (props) => {
   return (
@@ -23,5 +23,5 @@ export const SearchExternal = (props) => {
       <SearchStandards />
       <SearchStandardsID />
     </div>
-  )
-}
+  );
+};

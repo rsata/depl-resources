@@ -5,5 +5,5 @@ export const Calendar = (props) => {
     <li className='navCalendar topBar'>
       <div>Calendar placeholder</div>
     </li>
-  )
-}
+  );
+};

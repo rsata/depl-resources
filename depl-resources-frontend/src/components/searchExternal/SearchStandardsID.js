@@ -7,23 +7,23 @@ export class SearchStandardsID extends React.Component{
     this.state = {
       renderSearchResults: false,
       query: null
-    }
+    };
   }
 
   handlePageClick() {
-    this.setState({renderSearchResults: false})
+    this.setState({renderSearchResults: false});
   }
 
   handleSearchStandardsIDInputChange(e) {
     e.preventDefault();
     const input = e.target.value;
     const query = input.split(' ').join('+');
-    this.setState({query})
+    this.setState({query});
   }
 
   submitSearchStandardsID(e) {
     e.preventDefault();
-    this.setState({renderSearchResults: !this.state.renderSearchResults})
+    this.setState({renderSearchResults: !this.state.renderSearchResults});
   }
 
   render() {
@@ -34,7 +34,7 @@ export class SearchStandardsID extends React.Component{
         </form>
         {this.state.renderSearchResults===true ? <SearchResultsModal query={this.state.query} handlePageClick={this.handlePageClick.bind(this)} /> : null}
       </div>
-    )
+    );
   }
 }
 
@@ -49,5 +49,5 @@ const SearchResultsModal = (props) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -7,7 +7,7 @@ export const InsertDoc = (props) => {
     const title = e.target.title.value;
     const url = e.target.url.value;
     const entry = e.target.entry.value;
-    props.insertNewDoc({type, title, url, entry})
+    props.insertNewDoc({type, title, url, entry});
     // console.log({type, title, url, entry})
   }
 
@@ -32,5 +32,5 @@ export const InsertDoc = (props) => {
       <button type='submit'>Submit</button>
       </form>
     </div>
-  )
-}
+  );
+};

@@ -5,7 +5,7 @@ class App extends Component {
   test() {
     fetch('/')
       // .then(r => r.json())
-      .then((res) => console.log(res))
+      .then((res) => console.log(res));
   }
   render() {
     this.test();

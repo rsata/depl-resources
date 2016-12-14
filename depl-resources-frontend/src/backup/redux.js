@@ -8,7 +8,7 @@ function mapStateToProps(state) {
   return {
     dep: state.dep,
     heat: state.heat
-  }
+  };
 }
 
 function mapDispatchToProps(dispatch) {
