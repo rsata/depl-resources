@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { loadData } from '../actions/initActions';
 
-import { Card } from '../components/Card';
-import Test from '../components/card/Card';
+import Card from '../components/card/Card';
+// import Test from '../components/card/Card';
 
 // Eventually, make dynamic so can add new cards without touching this
 let typeToHeaderMapping = {
@@ -30,7 +30,6 @@ class Deployment extends React.Component {
             return <Card key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} />;
           })}
         </ul>
-        <Test />
       </div>
     );
   }
