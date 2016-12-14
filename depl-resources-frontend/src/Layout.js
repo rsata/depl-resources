@@ -2,6 +2,10 @@
 import React, { Component } from 'react';
 import './main.css';
 
+import { AppBar } from 'react-toolbox/lib/app_bar';
+import { Navigation } from 'react-toolbox/lib/navigation';
+import { Link } from 'react-toolbox/lib/link';
+
 import { Nav } from './components/nav/Nav';
 import { Footer } from './components/footer/Footer';
 import { SearchExternal } from './components/searchExternal/SearchExternal';

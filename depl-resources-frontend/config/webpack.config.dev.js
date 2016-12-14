@@ -81,7 +81,7 @@ module.exports = {
       'react-native': 'react-native-web'
     }
   },
-  
+
   module: {
     // First, run the linter.
     // It's important to do this before Babel processes the JS.
@@ -93,13 +93,30 @@ module.exports = {
       }
     ],
     loaders: [
+      /***** Begin custom loaders not part of create-react-app *****/
+
+      {
+        // test: /\.scss$/,
+        // include: paths.appSrc,
+        // loaders: ["style", "css", "sass"]
+        test: /(\.scss|\.css)$/,
+        loaders: [
+          require.resolve('style-loader'),
+          require.resolve('css-loader') + '?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]',
+          require.resolve('sass-loader') + '?sourceMap'
+        ]
+      },
+
+      /***** End custom loaders *****/
+
+
       // Process JS with Babel.
       {
         test: /\.(js|jsx)$/,
         include: paths.appSrc,
         loader: 'babel',
         query: {
-          
+
           // This is a feature of `babel-loader` for webpack (not Babel itself).
           // It enables caching results in ./node_modules/.cache/react-scripts/
           // directory for faster rebuilds. We use findCacheDir() because of:
@@ -146,7 +163,7 @@ module.exports = {
       }
     ]
   },
-  
+
   // We use PostCSS for autoprefixing only.
   postcss: function() {
     return [
