@@ -1,27 +1,21 @@
 import React from 'react';
+import CSSModules from 'react-css-modules';
+import styles from './searchExternal.scss';
 
 import { SearchFS } from './SearchFS';
 import { SearchStandards } from './SearchStandards';
 import { SearchStandardsID } from './SearchStandardsID';
 
-const styles = {
-  formSearchStandards: {
-    float: 'right'
-  },
-  formSearchFS: {
-    float: 'left'
-  },
-  searchWrapper: {
-    width: '70%'
-  }
-};
-
-export const SearchExternal = (props) => {
+const SearchExternal = (props) => {
   return (
-    <div style={styles.searchWrapper}>
-      <SearchFS />
-      <SearchStandards />
-      <SearchStandardsID />
+    <div>
+      <ul styleName='searchBar'>
+        <SearchFS />
+        <SearchStandards />
+        <SearchStandardsID />
+      </ul>
     </div>
   );
 };
+
+export default CSSModules(SearchExternal, styles);

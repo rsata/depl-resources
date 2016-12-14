@@ -1,17 +1,5 @@
 import React from 'react';
 
-const styles = {
-  formSearchStandards: {
-    float: 'right'
-  },
-  formSearchFS: {
-    float: 'left'
-  },
-  searchWrapper: {
-    width: '70%'
-  }
-};
-
 function searchStandards(e) {
   e.preventDefault();
   const query = encodeURI(e.target.searchStandardsInput.value);
@@ -20,9 +8,11 @@ function searchStandards(e) {
 
 export const SearchStandards = (props) => {
   return (
-    <form style={styles.formSearchStandards} onSubmit={searchStandards.bind(this)}>
-      <input type='text' className='searchBox' name='searchStandardsInput' placeholder='Standards Search by ID' />
-    </form>
+    <li>
+      <form onSubmit={searchStandards.bind(this)}>
+        <input type='text' className='searchBox' name='searchStandardsInput' placeholder='Standards Search by ID' />
+      </form>
+    </li>
   );
 };
 

@@ -4,7 +4,7 @@ import './main.css';
 
 import Nav from './components/nav/Nav';
 import { Footer } from './components/footer/Footer';
-import { SearchExternal } from './components/searchExternal/SearchExternal';
+import SearchExternal from './components/searchExternal/SearchExternal';
 
 export default class Layout extends Component{
   render() {

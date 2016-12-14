@@ -28,12 +28,14 @@ export class SearchStandardsID extends React.Component{
 
   render() {
     return (
-      <div>
-        <form onSubmit={this.submitSearchStandardsID.bind(this)}>
-          <input type='text' className='searchBox' name='searchStandardsID' placeholder='Standards Search' onChange={this.handleSearchStandardsIDInputChange.bind(this)} />
-        </form>
-        {this.state.renderSearchResults===true ? <SearchResultsModal query={this.state.query} handlePageClick={this.handlePageClick.bind(this)} /> : null}
-      </div>
+      <li>
+        <div>
+          <form onSubmit={this.submitSearchStandardsID.bind(this)}>
+            <input type='text' className='searchBox' name='searchStandardsID' placeholder='Standards Search' onChange={this.handleSearchStandardsIDInputChange.bind(this)} />
+          </form>
+          {this.state.renderSearchResults===true ? <SearchResultsModal query={this.state.query} handlePageClick={this.handlePageClick.bind(this)} /> : null}
+        </div>
+      </li>      
     );
   }
 }
