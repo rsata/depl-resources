@@ -7,6 +7,7 @@
   display: inline-block;
   min-height: 200px;
   overflow-y: auto;
+  text-align: center;
   &:hover {
     border: 2px solid green;
   }
@@ -17,11 +18,11 @@
   padding: 16px 5px;
 }
 
-.cardSubList {
-  padding: 13px;
-}
-
 .cardSubListItem {
   list-style: none;
-  margin-bottom: 5px;
+  margin-top: 12px;
+  font-size: 1.1em;
+  a {
+    color: #000;
+  }
 }

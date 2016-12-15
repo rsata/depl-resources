@@ -10,7 +10,7 @@ const Card = (props) => {
   return (
     <li styleName='displayCard'>
       <h3 styleName='cardTitle'>{props.title}</h3>
-      <ul styleName='cardSubList'>
+      <ul>
         {props.data.map(i => {
           if (i.url === '') return <li key={i.id} styleName='cardSubListItem'><CardItem title={i.title} data={i} /></li>;
           return <li key={i.id} styleName='cardSubListItem'><CardItemLink title={i.title} url={i.url} /></li>;
