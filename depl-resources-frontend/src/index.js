@@ -5,10 +5,10 @@ import { Router, Route, IndexRedirect } from 'react-router';
 import Layout from './Layout';
 import store, { history } from './store';
 
-import Deployment from './containers/Deployment';
-import Heat from './containers/Heat';
-import Admin from './containers/Admin';
-import Resource from './containers/Resource';
+import Deployment from './containers/deployment/Deployment';
+import Heat from './containers/heat/Heat';
+import Admin from './containers/admin/Admin';
+import Resource from './containers/resource/Resource';
 
 render(
   <Provider store={store}>

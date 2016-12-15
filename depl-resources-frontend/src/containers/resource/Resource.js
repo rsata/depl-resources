@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 
-import { loadData } from '../actions/initActions';
+import { loadData } from '../../actions/initActions';
 
 class Resource extends React.Component {
   constructor() {

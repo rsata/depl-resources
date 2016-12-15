@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { insertNewDoc, updateDocs, removeDoc } from '../actions/updateDocsActions';
-import { loadData } from '../actions/initActions';
+import { insertNewDoc, updateDocs, removeDoc } from '../../actions/updateDocsActions';
+import { loadData } from '../../actions/initActions';
 
-import { InsertDoc } from '../components/InsertDoc';
-import { CardEdit } from '../components/Card_EDIT';
+import { InsertDoc } from '../../components/InsertDoc';
+import { CardEdit } from '../../components/Card_EDIT';
 
 let typeToHeaderMapping = {
   standards: 'Standards',
