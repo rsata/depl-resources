@@ -1,5 +1,4 @@
 .navbar {
-  width:500px;
   display:table;
   background-color: #555;
   color: #fff;
@@ -7,8 +6,8 @@
   li {
     display:table-cell;
     text-align:center;
-    border-left: white 1px solid;
-    border-right: white 1px solid;
+    // border-left: white 1px solid;
+    // border-right: white 1px solid;
     height: 60px;
     vertical-align: middle;
     width: 25%;

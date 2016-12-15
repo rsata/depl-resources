@@ -1,6 +1,32 @@
 .sideNav {
   position: fixed;
   height: 100vh;
-  width: 300px;
+  width: 25%;
   background-color: #555;
+  padding: 23px;
+
+  li {
+    list-style: none;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    color: #fff;
+  }
+  a {
+    color: #fff;
+  }
+  svg {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    font-size: 8em;
+    width: 80%;
+    color: white;
+  }
+  h1 {
+    color: white;
+    border-bottom: solid 3px #fff;
+    margin-bottom: 39px;
+    padding: 22px 0;
+    text-align: center;
+  }
 }

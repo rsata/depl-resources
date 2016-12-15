@@ -53,7 +53,7 @@ class Nav extends React.Component {
           </li>
           <Password />
           <Calendar />
-          <TeamMenu path={routeToPageMapping[this.props.path]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
+          <TeamMenu path={routeToPageMapping[this.props.path]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />          
         </ul>
         {this.state.toggleSideNav===true ? <SideNav /> : null}
         {this.state.toggleTeamDropdown===true ? <TeamDropdown handleTeamDropdown={this.handleTeamDropdown.bind(this)} /> : null}
