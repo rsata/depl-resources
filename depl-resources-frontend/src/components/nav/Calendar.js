@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Calendar = (props) => {
   return (
-    <li className='navCalendar topBar'>
+    <li>
       <div>Calendar placeholder</div>
     </li>
   );

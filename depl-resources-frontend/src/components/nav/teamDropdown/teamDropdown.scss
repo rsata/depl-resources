@@ -1,0 +1,16 @@
+.teamDropdown {
+  text-align: center;
+  position: fixed;
+  display: block;
+  right: 0;
+  background-color: #555;
+  width: 25%;
+  ul {
+    li {
+      list-style: none;
+      a {
+        color: #fff;
+      }
+    }
+  }
+}

@@ -3,9 +3,8 @@ import { Link } from 'react-router';
 
 export const TeamMenu = (props) => {
   return (
-    <li className='navTeamMenu topBar'>
-      <Link to='/deployment'>Deployment</Link>
-      <Link to='/admin'>Admin</Link>
+    <li onClick={props.handleTeamDropdown}>
+      <div>{props.currentTeam}</div>
     </li>
   );
 };

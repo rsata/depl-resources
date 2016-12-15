@@ -2,7 +2,7 @@ import React from 'react';
 
 export const UserMenu = (props) => {
   return (
-    <li className='navUserMenu topBar'>
+    <li>
       <div>Username</div>
     </li>
   );

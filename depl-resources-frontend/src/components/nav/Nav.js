@@ -5,9 +5,10 @@ import CSSModules from 'react-css-modules';
 import styles from './nav.scss';
 
 import { Calendar } from './Calendar';
-import { TeamMenu } from './TeamMenu';
 import { Password } from './Password';
 import SideNav from './sideNav/SideNav';
+import TeamDropdown from './teamDropdown/TeamDropdown';
+import { TeamMenu } from './TeamMenu';
 
 // https://github.com/callemall/material-ui/pull/3005/files#diff-fe2fafcf2f595c0a3ecc6ba529b8aa2fL23
 
@@ -16,7 +17,9 @@ class Nav extends React.Component {
   constructor() {
     super();
     this.state = {
-      toggleSideNav: false
+      toggleSideNav: false,
+      toggleTeamDropdown: false,
+      currentTeam: 'Deployment'
     };
 
     document.addEventListener('keydown', (e) => {
@@ -30,8 +33,12 @@ class Nav extends React.Component {
     this.setState({toggleSideNav: !this.state.toggleSideNav});
   }
 
+  handleTeamDropdown() {
+    this.setState({toggleTeamDropdown: !this.state.toggleTeamDropdown});
+  }
+
   handleEscKey() {
-    this.setState({toggleSideNav: false});
+    this.setState({toggleSideNav: false, toggleTeamDropdown: false});
   }
 
   render() {
@@ -46,9 +53,10 @@ class Nav extends React.Component {
           </li>
           <Password />
           <Calendar />
-          <TeamMenu />
+          <TeamMenu currentTeam={this.state.currentTeam} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
         </ul>
         {this.state.toggleSideNav===true ? <SideNav /> : null}
+        {this.state.toggleTeamDropdown===true ? <TeamDropdown /> : null}
       </div>
     );
   }

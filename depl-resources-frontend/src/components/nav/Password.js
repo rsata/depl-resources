@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Password = (props) => {
   return (
-    <li className='navPassword topBar'>
+    <li>
       <div>ThawOut!</div>
     </li>
   );
