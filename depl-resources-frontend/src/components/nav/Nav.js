@@ -1,6 +1,4 @@
 import React from 'react';
-import FaAngleDoubleRight from 'react-icons/lib/fa/angle-double-right';
-import FaAngleDoubleLeft from 'react-icons/lib/fa/angle-double-left';
 import CSSModules from 'react-css-modules';
 import styles from './nav.scss';
 
@@ -50,11 +48,8 @@ class Nav extends React.Component {
     return(
       <div>
         <ul styleName='navbar'>
-          <li>
+          <li onClick={this.handleOpenSideNav.bind(this)}>
             <div>Username</div>
-            <button onClick={this.handleOpenSideNav.bind(this)}>
-              {this.state.toggleSideNav===true ? <FaAngleDoubleLeft /> : <FaAngleDoubleRight />}
-            </button>
           </li>
           <Password />
           <Calendar />
