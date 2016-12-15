@@ -8,6 +8,7 @@ const TeamDropdown = (props) => {
     <div styleName='teamDropdown'>
       <ul>
         <li onClick={props.handleTeamDropdown}><Link to='/deployment' activeStyle={{ backgroundColor: '#333' }}>Deployment</Link></li>
+        <li onClick={props.handleTeamDropdown}><Link to='/heat' activeStyle={{ backgroundColor: '#333' }}>Heat</Link></li>
         <li onClick={props.handleTeamDropdown}><Link to='/admin' activeStyle={{ backgroundColor: '#333' }}>Admin</Link></li>
       </ul>
     </div>
