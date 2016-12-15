@@ -10,7 +10,13 @@ import SideNav from './sideNav/SideNav';
 import TeamDropdown from './teamDropdown/TeamDropdown';
 import { TeamMenu } from './TeamMenu';
 
-// https://github.com/callemall/material-ui/pull/3005/files#diff-fe2fafcf2f595c0a3ecc6ba529b8aa2fL23
+// Eventually, make dynamic so can add new cards without touching this
+// Mapping route to nav page - probably not best way to do this
+let routeToPageMapping = {
+  '/deployment': 'Deployment',
+  '/heat': 'Heat',
+  '/admin': 'Admin'
+};
 
 class Nav extends React.Component {
 
@@ -18,8 +24,7 @@ class Nav extends React.Component {
     super();
     this.state = {
       toggleSideNav: false,
-      toggleTeamDropdown: false,
-      currentTeam: 'Deployment'
+      toggleTeamDropdown: false
     };
 
     document.addEventListener('keydown', (e) => {
@@ -53,10 +58,10 @@ class Nav extends React.Component {
           </li>
           <Password />
           <Calendar />
-          <TeamMenu currentTeam={this.state.currentTeam} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
+          <TeamMenu path={routeToPageMapping[this.props.path]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
         </ul>
         {this.state.toggleSideNav===true ? <SideNav /> : null}
-        {this.state.toggleTeamDropdown===true ? <TeamDropdown /> : null}
+        {this.state.toggleTeamDropdown===true ? <TeamDropdown handleTeamDropdown={this.handleTeamDropdown.bind(this)} /> : null}
       </div>
     );
   }

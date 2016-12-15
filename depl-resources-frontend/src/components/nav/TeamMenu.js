@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export const TeamMenu = (props) => {
   return (
     <li onClick={props.handleTeamDropdown}>
-      <div>{props.currentTeam}</div>
+      <div>{props.path}</div>
     </li>
   );
 };

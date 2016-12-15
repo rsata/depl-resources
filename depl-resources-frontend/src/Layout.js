@@ -11,7 +11,7 @@ export default class Layout extends Component{
     return (
       <div>
         <div>
-          <Nav />
+          <Nav path={this.props.location.pathname}/>
           <SearchExternal />
         </div>
         <div className='pageWrapper'>
