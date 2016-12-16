@@ -10,30 +10,29 @@ import { browserHistory } from 'react-router';
 //
 // export default createStore(reducer, middleware)
 
+// const posts = [
+//   {
+//     id: '91847t9pg2',
+//     entry: 'this is a sample entry',
+//     lastEdited: new Date(),
+//     title: 'sample post',
+//     type: 'config'
+//   },
+//   {
+//     id: 'h34hw43tq4',
+//     entry: 'this is another sample entry',
+//     lastEdited: new Date(),
+//     title: 'sample post 2',
+//     type: 'standards'
+//   }
+// ]
 
 import reducer from './reducers/index'
-
-const posts = [
-  {
-    id: '91847t9pg2',
-    entry: 'this is a sample entry',
-    lastEdited: new Date(),
-    title: 'sample post',
-    type: 'config'
-  },
-  {
-    id: 'h34hw43tq4',
-    entry: 'this is another sample entry',
-    lastEdited: new Date(),
-    title: 'sample post 2',
-    type: 'standards'
-  }
-]
 
 const dep = 0;
 const heat = 0;
 
-const defaultState = {dep, heat};
+const defaultState = {count: 0};
 
 // const store = createStore(reducer, defaultState);
 const store = createStore(reducer, defaultState, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());

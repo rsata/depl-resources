@@ -6,8 +6,7 @@ import Layout from './Layout';
 
 function mapStateToProps(state) {
   return {
-    dep: state.dep,
-    heat: state.heat
+    dep: state.count
   }
 }
 

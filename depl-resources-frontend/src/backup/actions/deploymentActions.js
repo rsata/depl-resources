@@ -11,16 +11,16 @@
 // }
 
 
-export function increment(index) {
+export function increment() {
   return {
     type: 'INCREMENT',
-    index
+    payload: 1
   }
 }
 
-export function decrement(index) {
+export function decrement() {
   return {
     type: 'DECREMENT',
-    index
+    payload: 1
   }
 }

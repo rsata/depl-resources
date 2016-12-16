@@ -46,13 +46,16 @@
 //   }
 // }
 
-export default function increment(state=[], action) {
-  // console.log('yay dep action');
-  // console.log(state, action);
-  // return state;
-  switch(action.type) {
-    case 'INCREMENT': {
-      return {...state, count: 1}
-    }
-  }
-}
+// export default function increment(state={}, action) {
+//   // console.log('yay dep action');
+//   // console.log(state, action);
+//   // return state;
+//   switch(action.type) {
+//     case 'INCREMENT': {
+//       return {...state, count: 'hi'}
+//     },
+//     case 'DECREMENT': {
+//       return {...state, count: ;'nay'}
+//     }
+//   }
+// }

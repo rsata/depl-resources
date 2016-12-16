@@ -6,7 +6,6 @@ import heat from './heatReducer';
 
 const rootReducer = combineReducers({
   dep,
-  heat,
   routing: routerReducer
 })
 
