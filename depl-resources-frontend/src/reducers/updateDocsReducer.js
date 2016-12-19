@@ -22,6 +22,16 @@ const updateDocsReducer = (state={}, action) => {
         siteBuild
       };
 
+    case 'UPDATE_DOCS_INSERT':
+      const stateItemInsertArray = state[action.payload.type];
+      return state = {
+        ...state,
+        [action.payload.type]: [
+          ...stateItemInsertArray,
+          action.payload
+        ]
+      };
+
     case 'UPDATE_DOCS_UPDATE':
       const stateItemArray = state[action.payload.type];
       var updateIndex = stateItemArray.map(function(el) {

@@ -11,7 +11,12 @@ export function insertNewDoc({type, title, url, entry}) {
         url,
         entry
       })
-    });
+    }).then(
+      dispatch({
+        type: 'UPDATE_DOCS_INSERT',
+        payload: {type, title, url, entry}
+      })
+    );
     // update state?
   };
 }
