@@ -1,7 +1,9 @@
 import React from 'react';
-import { CardItemEditForm } from './CardItemForm_EDIT';
+import CardItemEditForm from './CardItemForm_EDIT';
+import CSSModules from 'react-css-modules';
+import styles from './cardItem_EDIT.scss';
 
-export class CardItemEdit extends React.Component {
+class CardItemEdit extends React.Component {
   constructor() {
     super();
     this.state={
@@ -26,12 +28,14 @@ export class CardItemEdit extends React.Component {
 
   render(){
     return (
-      <li>
-        {this.props.title}
+      <li styleName='listItemWrapper'>
+        <span styleName='title'>{this.props.title}</span>
         {this.state.toggleEdit===true ? <CardItemEditForm data={this.props.data} updateDocs={this.props.updateDocs} handleToggleEdit={this.handleToggleEdit.bind(this)} /> : null}
-        <button onClick={this.handleToggleEdit.bind(this)}>{this.state.toggleEdit===true ? 'Cancel' : 'Edit'}</button>
-        <button onClick={this.handleDelete.bind(this)}>x</button>
+        <button styleName='edit' onClick={this.handleToggleEdit.bind(this)}>{this.state.toggleEdit===true ? 'Cancel' : 'Edit'}</button>
+        <button styleName='delete' onClick={this.handleDelete.bind(this)}>x</button>
       </li>
     );
   }
 }
+
+export default CSSModules(CardItemEdit, styles);

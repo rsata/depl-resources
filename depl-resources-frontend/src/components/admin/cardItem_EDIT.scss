@@ -1,0 +1,35 @@
+.listItemWrapper {
+  margin-top: 17px;
+  list-style: none;
+  .title {
+    background-color: #2980B9;
+    color: #fff;
+    padding: 6px 12px;
+    border-radius: 4px;
+  }
+  button {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    &.edit {
+      background-color: #2ECC71;
+      margin: 0 8px;
+    }
+    &.delete {
+      background-color: #E74C3C;
+    }
+  }
+}
