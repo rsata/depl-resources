@@ -4,7 +4,7 @@ import styles from './searchExternal.scss';
 
 import { SearchFS } from './SearchFS';
 import { SearchStandards } from './SearchStandards';
-import { SearchStandardsID } from './SearchStandardsID';
+import { SearchStandardsID } from './searchStandardsID/SearchStandardsID';
 
 const SearchExternal = (props) => {
   return (
