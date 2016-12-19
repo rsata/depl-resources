@@ -5,6 +5,10 @@
   padding: 0;
 }
 
+html {
+  height: 100%;
+}
+
 body {
   font-family: 'Molengo', sans-serif;
 }
@@ -15,4 +19,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 a {
   text-decoration: none;
+}
+
+.pageWrapper {
+  padding: 20px;
 }
