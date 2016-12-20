@@ -11,8 +11,8 @@ const SearchExternal = (props) => {
     <div>
       <ul styleName='searchBar'>
         <SearchFS />
-        <SearchStandards />
         <SearchStandardsID />
+        <SearchStandards />
       </ul>
     </div>
   );
