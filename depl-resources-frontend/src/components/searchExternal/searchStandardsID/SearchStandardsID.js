@@ -33,7 +33,7 @@ export class SearchStandardsID extends React.Component {
       <li>
         <div>
           <form onSubmit={this.submitSearchStandardsID.bind(this)}>
-            <input type='text' className='searchBox' name='searchStandardsID' placeholder='Standards Search' onChange={this.handleSearchStandardsIDInputChange.bind(this)} />
+            <input type='text' className='searchBox' name='searchStandardsID' placeholder='Search for District ID' onChange={this.handleSearchStandardsIDInputChange.bind(this)} />
           </form>
           {this.state.renderSearchResults===true ? <SearchResultsModal query={this.state.query} handlePageClick={this.handlePageClick.bind(this)} styleName='searchResultsModal' /> : null}
         </div>
