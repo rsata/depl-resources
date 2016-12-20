@@ -24,3 +24,9 @@ a {
 .pageWrapper {
   padding: 20px;
 }
+
+#deploymentPageWrapper {
+  margin: auto;
+  width: 84%;
+  height: 800px;
+}

@@ -24,7 +24,7 @@ class Deployment extends React.Component {
   render() {
     if (!this.props.deploymentDocs) return <div>Loading...</div>;
     return(
-      <div>
+      <div id="deploymentPageWrapper">
         <ul>
           {Object.entries(this.props.deploymentDocs).map(i => {
             return <Card key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} />;
