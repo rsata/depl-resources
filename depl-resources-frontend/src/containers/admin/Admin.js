@@ -37,7 +37,7 @@ class Admin extends React.Component {
     return(
       <div className='adminPageWrapper'>
         <h1>Admin</h1>
-        {this.state.toggleAddNew===true ? <InsertDoc insertNewDoc={({type, title, url, entry}) => this.props.insertNewDoc({type, title, url, entry})} /> : null}
+        {this.state.toggleAddNew===true ? <InsertDoc insertNewDoc={({type, title, url, entry}) => this.props.insertNewDoc({type, title, url, entry})} handleToggleAddNew={this.handleToggleAddNew.bind(this)} /> : null}
         <button onClick={this.handleToggleAddNew.bind(this)}>{this.state.toggleAddNew===true ? 'Cancel' : 'Add New'}</button>
 
         <h3>Manage Docs</h3>

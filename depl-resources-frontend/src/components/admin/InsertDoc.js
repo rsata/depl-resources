@@ -8,7 +8,7 @@ export const InsertDoc = (props) => {
     const url = e.target.url.value;
     const entry = e.target.entry.value;
     props.insertNewDoc({type, title, url, entry});
-    // console.log({type, title, url, entry})
+    props.handleToggleAddNew();
   }
 
   return (
