@@ -4,8 +4,8 @@ import styles from './nav.scss';
 
 import { Calendar } from './Calendar';
 import { Password } from './Password';
-import SideNav from './sideNav/SideNav';
-import TeamDropdown from './teamDropdown/TeamDropdown';
+import SideNav from './sideNav';
+import TeamDropdown from './teamDropdown';
 import { TeamMenu } from './TeamMenu';
 
 // Eventually, make dynamic so can add new cards without touching this
@@ -53,7 +53,7 @@ class Nav extends React.Component {
           </li>
           <Password />
           <Calendar />
-          <TeamMenu path={routeToPageMapping[this.props.path]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />          
+          <TeamMenu path={routeToPageMapping[this.props.path]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
         </ul>
         {this.state.toggleSideNav===true ? <SideNav /> : null}
         {this.state.toggleTeamDropdown===true ? <TeamDropdown handleTeamDropdown={this.handleTeamDropdown.bind(this)} /> : null}
