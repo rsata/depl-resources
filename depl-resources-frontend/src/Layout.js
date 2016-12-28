@@ -4,6 +4,7 @@ import './main.css';
 
 import Nav from './components/nav/Nav';
 import Footer from './components/footer/Footer';
+import RightNav from './components/nav/rightNav';
 import SearchExternal from './components/searchExternal/SearchExternal';
 
 export default class Layout extends Component{
@@ -13,6 +14,7 @@ export default class Layout extends Component{
         <div>
           <Nav path={this.props.location.pathname}/>
           <SearchExternal />
+          <RightNav />
         </div>
         <div className='pageWrapper'>
           {/* We use cloneElement here so we can auto pass down props */}
