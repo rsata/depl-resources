@@ -5,7 +5,7 @@
   padding: 0;
 }
 
-html {
+html, body {
   height: 100%;
 }
 
@@ -23,10 +23,11 @@ a {
 
 .pageWrapper {
   padding: 20px;
+  min-height: 100%;
 }
 
 #deploymentPageWrapper {
-  margin: auto;
-  width: 84%;
+  text-align: center;
+  max-width: 78%;
   height: 800px;
 }

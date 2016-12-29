@@ -13,10 +13,10 @@ export default class Layout extends Component{
       <div>
         <div>
           <Nav path={this.props.location.pathname}/>
-          <SearchExternal />
           <RightNav />
         </div>
         <div className='pageWrapper'>
+          <SearchExternal />
           {/* We use cloneElement here so we can auto pass down props */}
           {/* Essentially each element is getting cloned with its own props so children of it can call this.props */}
           { React.cloneElement(this.props.children, this.props) }
