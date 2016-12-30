@@ -2,8 +2,24 @@
   width:500px;
   display:table;
   width: 78%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   li {
     display:table-cell;
     text-align:center;
+  }
+  input {
+    height: 20px;
+    width: 100%;
+  }
+  form {
+    margin-right: 10px;
+    svg {
+      float: right;
+      margin-right: 6px;
+      margin-top: -20px;
+      position: relative;
+      z-index: 2;
+    }
   }
 }

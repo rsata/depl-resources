@@ -1,5 +1,5 @@
 import React from 'react';
-
+import MdSearch from 'react-icons/lib/md/search';
 import SearchResultsModal from './SearchResultsModal';
 
 export class SearchStandardsID extends React.Component {
@@ -34,6 +34,7 @@ export class SearchStandardsID extends React.Component {
         <div>
           <form onSubmit={this.submitSearchStandardsID.bind(this)}>
             <input type='text' className='searchBox' name='searchStandardsID' placeholder='Search for District ID' onChange={this.handleSearchStandardsIDInputChange.bind(this)} />
+            <span><MdSearch /></span>
           </form>
           {this.state.renderSearchResults===true ? <SearchResultsModal query={this.state.query} handlePageClick={this.handlePageClick.bind(this)} styleName='searchResultsModal' /> : null}
         </div>
