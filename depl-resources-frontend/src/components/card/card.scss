@@ -1,11 +1,11 @@
 .displayCard {
   border: solid 2px #000;
   height: 300px;
-  width: 227px;
-  float: left;
-  margin: 0 10px 10px 0;
+  // width: 227px;
+  // float: left;
+  // margin: 0 10px 10px 0;
   display: inline-block;
-  min-height: 200px;
+  // min-height: 200px;
   overflow-y: auto;
   text-align: center;
   &:hover {
@@ -19,7 +19,7 @@
 }
 
 .cardSubListItem {
-  list-style: none;
+  // list-style: none;
   margin-top: 12px;
   font-size: 1.1em;
   a {

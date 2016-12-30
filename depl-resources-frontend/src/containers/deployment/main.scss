@@ -1,0 +1,16 @@
+.wrapper {
+  text-align: center;
+  width: 78%;
+  // height: 800px;
+  ul {
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    li {
+      flex: 0 0 30%;
+      background-color: red;
+      list-style: none;
+      margin: 10px;
+    }
+  }
+}
