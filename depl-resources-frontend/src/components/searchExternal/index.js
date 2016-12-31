@@ -8,8 +8,8 @@ import { SearchStandardsID } from './searchStandardsID/SearchStandardsID';
 
 const SearchExternal = (props) => {
   return (
-    <div>
-      <ul styleName='searchBar'>
+    <div styleName='searchBar'>
+      <ul>
         <SearchFS />
         <SearchStandardsID />
         <SearchStandards />

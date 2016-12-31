@@ -1,16 +1,14 @@
 .wrapper {
-  text-align: center;
-  width: 78%;
-  // height: 800px;
-  ul {
+  width: 85.44%;
+  ul.cardList {
     display: flex;
     flex-flow: row wrap;
-    width: 100%;
     li {
-      flex: 0 0 30%;
-      background-color: red;
+      flex: 0 1 32%;
       list-style: none;
-      margin: 10px;
+      // This is weird... Why not the same as search bar?  Doesn't quite line up
+      margin-right: 1%;
+      margin-bottom: 10px;
     }
   }
 }
