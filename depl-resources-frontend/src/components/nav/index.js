@@ -11,9 +11,10 @@ import { TeamMenu } from './TeamMenu';
 // Eventually, make dynamic so can add new cards without touching this
 // Mapping route to nav page - probably not best way to do this
 let routeToPageMapping = {
-  '/deployment': 'Deployment',
-  '/heat': 'Heat',
-  '/admin': 'Admin'
+  'deployment': 'Deployment',
+  'heat': 'Heat',
+  'admin': 'Admin',
+  'resource': 'Resource'
 };
 
 class Nav extends React.Component {
@@ -44,6 +45,14 @@ class Nav extends React.Component {
     this.setState({toggleSideNav: false, toggleTeamDropdown: false});
   }
 
+  trimPath(path) {
+    // this is messy...
+    let p = path;
+    const n = p.split('/');
+    p = n.length > 2 ? n[0] : n[1];
+    return p;
+  }
+
   render() {
     return(
       <div>
@@ -53,7 +62,7 @@ class Nav extends React.Component {
           </li>
           <Password />
           <Calendar />
-          <TeamMenu path={routeToPageMapping[this.props.path]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
+          <TeamMenu path={routeToPageMapping[this.trimPath(this.props.path)]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
         </ul>
         {this.state.toggleSideNav===true ? <SideNav /> : null}
         {this.state.toggleTeamDropdown===true ? <TeamDropdown handleTeamDropdown={this.handleTeamDropdown.bind(this)} /> : null}
