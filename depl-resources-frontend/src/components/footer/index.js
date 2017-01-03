@@ -9,6 +9,7 @@ const Footer = (props) => {
         <li><a href='https://fs.rubicon.com/Rubicon%20Underground/Default.htm' target='_blank'>Facebook</a></li>
         <li><a href='https://fs.rubicon.com/Rubicon%20Underground/Default.htm#BuckinghamPalace/Phone List.htm%3FTocPath%3DBuckingham%2520Palace%7C_____5' target='_blank'>Phone List</a></li>
         <li>Channel Map</li>
+        <li>Onboarding</li>
       </ul>
     </div>
   );

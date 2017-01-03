@@ -6,15 +6,28 @@
   color: white;
   ul {
     display: table;
+    width: 100%;
     li {
-      display: table-cell;
-      text-align: center;
+      display:table-cell;
+      text-align:center;
       height: 40px;
       vertical-align: middle;
-      width: 25%;
+      width: 16.66%;
       border-right: dotted 2px white;
       a {
         color: #fff;
+      }
+      &:hover{
+        cursor: pointer;
+        text-decoration: underline;
+      }
+      // To avoid drawing a line on the last item in nav
+      &:nth-child(4n) {
+        border-right: none;
+      }
+      // Calendar should be wider
+      &:nth-child(3n) {
+        width: 50%;
       }
     }
   }
