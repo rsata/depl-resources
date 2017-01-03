@@ -27,7 +27,7 @@ class Deployment extends React.Component {
       <div styleName='wrapper'>
         <ul styleName='cardList'>
           {Object.entries(this.props.deploymentDocs).map(i => {
-            return <Card key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} />;
+            return <Card key={i[0]} title={typeToHeaderMapping[i[0]]} data={i[1]} />;
           })}
         </ul>
       </div>
