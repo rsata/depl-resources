@@ -3,6 +3,7 @@ const app = express();
 var bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
+var request = require('request');
 
 const MongoQuery = require('./mongo');
 
@@ -101,6 +102,17 @@ app.post('/api/update', function(req, res, next) {
       console.log('update success');
       res.send(result);
     });
+  });
+});
+
+app.post('/api/jira', function(req, res, next) {
+  const username = req.body.username;
+  const query = encodeURIComponent('project = DEP AND resolution = unresolved AND assignee = ' + username);
+
+  request.get('http://jira.rubicon.com/rest/api/2/search?jql='+ query +'&maxResults=100', (err, response, body) => {
+    if (!err && response.statusCode == 200) {
+      res.send(body);
+    }
   });
 });
 
