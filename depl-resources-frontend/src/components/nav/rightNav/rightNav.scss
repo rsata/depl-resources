@@ -1,0 +1,14 @@
+.wrapper {
+  float: right;
+  height: 100vh;
+  // 2 less than normal because of padding
+  padding: 1%;
+  background-color: #999;
+  width: 14.66%;
+  li {
+    list-style: none;
+    margin-bottom: 12px;
+    font-size: 1.1em;
+    color: #fff;
+  }
+}

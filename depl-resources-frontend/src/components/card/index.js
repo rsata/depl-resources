@@ -12,8 +12,8 @@ const Card = (props) => {
       <h3 styleName='cardTitle'>{props.title}</h3>
       <ul>
         {props.data.map(i => {
-          if (i.url === '') return <li key={i.id} styleName='cardSubListItem'><CardItem title={i.title} data={i} /></li>;
-          return <li key={i.id} styleName='cardSubListItem'><CardItemLink title={i.title} url={i.url} /></li>;
+          if (i.url === '') return <li key={i.title} styleName='cardSubListItem'><CardItem title={i.title} data={i} /></li>;
+          return <li key={i.title} styleName='cardSubListItem'><CardItemLink title={i.title} url={i.url} /></li>;
         })}
       </ul>
     </li>

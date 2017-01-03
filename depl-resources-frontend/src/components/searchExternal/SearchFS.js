@@ -1,4 +1,5 @@
 import React from 'react';
+import MdSearch from 'react-icons/lib/md/search';
 
 function searchFS(e) {
   e.preventDefault();
@@ -11,6 +12,7 @@ export const SearchFS = (props) => {
     <li>
       <form onSubmit={searchFS.bind(this)}>
         <input type='text' className='searchBox' name='searchFSInput' placeholder='Search Flight School'/>
+        <span><MdSearch /></span>
       </form>
     </li>
   );

@@ -1,9 +1,9 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { loadData } from '../../actions/initActions';
+import CSSModules from 'react-css-modules';
+import styles from './main.scss';
 
-import Card from '../../components/card/Card';
-// import Test from '../components/card/Card';
+// WTF this should work with just /card
+import Card from '../../components/card/index';
 
 // Eventually, make dynamic so can add new cards without touching this
 let typeToHeaderMapping = {
@@ -24,8 +24,8 @@ class Deployment extends React.Component {
   render() {
     if (!this.props.deploymentDocs) return <div>Loading...</div>;
     return(
-      <div id="deploymentPageWrapper">
-        <ul>
+      <div styleName='wrapper'>
+        <ul styleName='cardList'>
           {Object.entries(this.props.deploymentDocs).map(i => {
             return <Card key={i} title={typeToHeaderMapping[i[0]]} data={i[1]} />;
           })}
@@ -35,19 +35,4 @@ class Deployment extends React.Component {
   }
 }
 
-
-const mapStateToProps = (state) => {
-  return {
-    deploymentDocs: state.deploymentDocs
-  };
-};
-
-const mapDispatchToProps = (dispatch) => {
-  return {
-    loadData: () => {
-      dispatch(loadData());
-    }
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Deployment);
+export default CSSModules(Deployment, styles);

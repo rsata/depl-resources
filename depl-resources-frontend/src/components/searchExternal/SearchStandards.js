@@ -1,4 +1,5 @@
 import React from 'react';
+import MdSearch from 'react-icons/lib/md/search';
 
 function searchStandards(e) {
   e.preventDefault();
@@ -11,6 +12,7 @@ export const SearchStandards = (props) => {
     <li>
       <form onSubmit={searchStandards.bind(this)}>
         <input type='text' className='searchBox' name='searchStandardsInput' placeholder='Standards Search by ID' />
+        <span><MdSearch /></span>
       </form>
     </li>
   );
