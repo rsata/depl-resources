@@ -26,7 +26,6 @@ class RightNav extends React.Component{
 };
 
 const NavList = (props) => {
-  console.log(props.data[1]);
   return (
     <div>
       <h3>{props.title}</h3>
