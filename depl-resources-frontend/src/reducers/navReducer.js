@@ -21,7 +21,7 @@ const updateDocsReducer = (state={}, action) => {
       var updateIndex = stateItemArray.map(function(el) {
         return el.id;
       }).indexOf(action.payload.id);
-
+      console.log(action.payload);
       return state = {
         ...state,
         [action.payload.type]: [

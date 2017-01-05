@@ -10,14 +10,33 @@ class RightNav extends React.Component{
     return (
       <div styleName='wrapper'>
         <ul>
-          <li>Item 1</li>
-          <li>Item 2</li>
-          <li>Item 3</li>
-          {/* this.props.nav.sideNav */}
+          {
+            Object.entries(this.props.nav).map(x => {
+              return (
+                <li key={x} styleName='listHeaders'>
+                  <NavList title={x[0]} data={x}/>
+                </li>
+              );
+            })
+          }
         </ul>
       </div>
     );
   }
+};
+
+const NavList = (props) => {
+  console.log(props.data[1]);
+  return (
+    <div>
+      <h3>{props.title}</h3>
+      <ul>
+        {props.data[1].map(x => {
+          return (<li key={x.title}>{x.title}</li>);
+        })}
+      </ul>
+    </div>
+  );
 };
 
 export default CSSModules(RightNav, styles);

@@ -65,7 +65,7 @@ export function removeDoc({id, type}) {
   };
 }
 
-export function updateNavSidebar({id, type, title, url}) {
+export function updateNavSidebar({id, type, title, url, entry}) {
   return (dispatch) => {
     fetch('http://localhost:3001/api/updateNavSidebar', {
       method: 'POST',
@@ -76,12 +76,13 @@ export function updateNavSidebar({id, type, title, url}) {
         id,
         type,
         title,
-        url
+        url,
+        entry
       })
     }).then(
       dispatch({
         type: 'UPDATE_NAV_SIDEBAR',
-        payload: {id, type, title, url}
+        payload: {id, type, title, url, entry}
       })
     );
   };

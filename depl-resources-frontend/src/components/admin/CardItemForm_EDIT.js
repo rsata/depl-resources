@@ -39,6 +39,7 @@ class CardItemEditForm extends React.Component {
   }
 
   render() {
+    console.log(this.props.data);
     return(
       <div styleName='editForm'>
         <h2>Insert new document (defaults to depl team for now...)</h2>

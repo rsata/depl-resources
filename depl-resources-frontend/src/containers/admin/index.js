@@ -92,7 +92,7 @@ class Admin extends React.Component {
               key={i}
               title={typeToHeaderMapping[i[0]]}
               data={i[1]}
-              updateDocs={({id, type, title, url, entry}) => this.props.updateNavSidebar({id, type, title, url})}
+              updateDocs={({id, type, title, url, entry}) => this.props.updateNavSidebar({id, type, title, url, entry})}
               removeDoc={({id, type}) => this.props.removeNavItem({id, type})}
             />;
           })
@@ -127,8 +127,8 @@ const mapDispatchToProps = (dispatch) => {
     getNavItems: () => {
       dispatch(getNavItems());
     },
-    updateNavSidebar: ({id, type, title, url}) => {
-      dispatch(updateNavSidebar({id, type, title, url}));
+    updateNavSidebar: ({id, type, title, url, entry}) => {
+      dispatch(updateNavSidebar({id, type, title, url, entry}));
     },
     removeNavItem: ({id, type}) => {
       dispatch(removeNavItem({id, type}));

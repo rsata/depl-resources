@@ -1,15 +1,16 @@
 const express = require('express');
 const app = express();
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const MongoClient = require('mongodb').MongoClient;
 const assert = require('assert');
-var request = require('request');
+const request = require('request');
 
 const MongoQuery = require('./mongo');
 
 app.use('/*', function (req, res, next) {
 
   // Website you wish to allow to connect
+  // Change for prod
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
 
   // Request methods you wish to allow
@@ -120,11 +121,12 @@ app.post('/api/updateNavSidebar', function(req, res, next) {
     const title = req.body.title;
     const url = req.body.url;
     const type = req.body.type;
+    const entry = req.body.entry;
 
     const collection = db.collection('nav');
-    console.log({id, type, title, url});
+    console.log({id, type, title, url, entry});
     // something like this...
-    collection.update({id}, {$set: {type, title, url, lastEdited: new Date()}}, (err, result) => {
+    collection.update({id}, {$set: {type, title, url, entry, lastEdited: new Date()}}, (err, result) => {
       if (err) return err;
       console.log('update success');
       res.send(result);
