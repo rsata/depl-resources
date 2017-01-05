@@ -33,13 +33,6 @@ class Admin extends React.Component {
     this.setState({toggleAddNew: !this.state.toggleAddNew});
   }
 
-  makeList(l) {
-    console.log(l);
-    l.map(i => {
-      return i.title;
-    });
-  }
-
   render() {
     if (!this.props.deploymentDocs || Object.keys(this.props.nav).length < 1) return <div>Loading...</div>;
     return(
@@ -53,6 +46,7 @@ class Admin extends React.Component {
 
           *****
         */}
+
         <h2>Manage Docs</h2>
 
         {
@@ -88,14 +82,10 @@ class Admin extends React.Component {
 
         <h2>Nav Config</h2>
         <ul>
-          {/* {console.log(this.props.nav)} */}
+          {console.log(this.props.nav.config)}
         {
-          Object.values(this.props.nav).map((x, i) => {
-            const keys = Object.keys(this.props.nav)[i];
-            // return Array.isArray(x) === true ? x.forEach(t => {return <li key={t.lastEdited}>{keys}: {t.title}</li>;}) : <li key={x.lastEdited}>{keys}: {x.title}</li>;
-            // return Array.isArray(x) === true ? x.forEach(t => {return console.log(t);}) : <li key={x.lastEdited}>{keys}: {x.title}</li>;
-            // return Array.isArray(x) === true ? <li key={x.lastEdited}>{x.title}{console.log(x)}</li> : <li key={x.lastEdited}>{keys}: {x.title}</li>;
-            return Array.isArray(x) === true ? this.makeList(x) : <li key={x.lastEdited}>{keys}: {x.title}</li>;
+          this.props.nav.config.map(x => {
+            return <li key={x.lastEdited}>{x.type}: {x.title}</li>;
           })
         }
         </ul>

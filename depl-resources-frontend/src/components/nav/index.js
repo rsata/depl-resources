@@ -54,13 +54,14 @@ class Nav extends React.Component {
   }
 
   render() {
+    if (Object.keys(this.props.nav).length < 1) return (<div>Loading...</div>);
     return(
       <div>
         <ul styleName='navbar'>
           <li onClick={this.handleOpenSideNav.bind(this)}>
             <div>Username</div>
           </li>
-          <Password />
+          <Password password={this.props.nav.password.title} />
           <Calendar />
           <TeamMenu path={routeToPageMapping[this.trimPath(this.props.path)]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
         </ul>

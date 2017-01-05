@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import './main.css';
 
-import Nav from './components/nav';
+import Nav from './containers/nav';
 import Footer from './components/footer';
 import RightNav from './components/nav/rightNav';
 import SearchExternal from './components/searchExternal';

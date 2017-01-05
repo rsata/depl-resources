@@ -1,18 +1,17 @@
 const updateDocsReducer = (state={}, action) => {
   switch(action.type) {
     case 'LOAD_NAV_DATA':
-      let resources = [];
-      let tips = [];
+      // let resources = [];
+      // let tips = [];
       let password;
       action.payload.forEach((i) => {
-        if (i.type==='resources') resources.push(i);
-        if (i.type==='tips') tips.push(i);
+        // if (i.type==='resources') resources.push(i);
+        // if (i.type==='tips') tips.push(i);
         if (i.type==='password') password = i;
       });
       return state = {
         ...state,
-        tips,
-        resources,
+        config: action.payload,
         password
       };
 
