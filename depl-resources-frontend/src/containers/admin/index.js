@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { insertNewDoc, updateDocs, removeDoc, updateNavSidebar } from '../../actions/updateDocsActions';
+import { insertNewDoc, updateDocs, removeDoc, updateNavSidebar, removeNavItem } from '../../actions/updateDocsActions';
 import { loadData, getNavItems } from '../../actions/initActions';
 
 import { InsertDoc } from '../../components/admin/InsertDoc';
@@ -12,7 +12,10 @@ let typeToHeaderMapping = {
   advancedConfig: 'Advanced Configuration',
   mapLoading: 'Map Loading',
   siteBuild: 'Site Build',
-  pleiades: 'Pleiades'
+  pleiades: 'Pleiades',
+  resources: 'Resources',
+  tips: 'Tips',
+  password: 'Password'
 };
 
 class Admin extends React.Component {
@@ -36,7 +39,7 @@ class Admin extends React.Component {
   render() {
     if (!this.props.deploymentDocs || Object.keys(this.props.nav).length < 1) return <div>Loading...</div>;
     return(
-      <div className='adminPageWrapper'>
+      <div className='adminPageWrapper' style={{marginBottom: '75px'}}>
         <h1>Admin</h1>
 
         {/*
@@ -82,10 +85,16 @@ class Admin extends React.Component {
 
         <h2>Nav Config</h2>
         <ul>
-          {console.log(this.props.nav.config)}
         {
-          this.props.nav.config.map(x => {
-            return <li key={x.lastEdited}>{x.type}: {x.title}</li>;
+          Object.entries(this.props.nav).map(i => {
+            // return <li key={x.lastEdited}>{x.type}: {x.title}</li>;
+            return <CardEdit
+              key={i}
+              title={typeToHeaderMapping[i[0]]}
+              data={i[1]}
+              updateDocs={({id, type, title, url, entry}) => this.props.updateNavSidebar({id, type, title, url})}
+              removeDoc={({id, type}) => this.props.removeNavItem({id, type})}
+            />;
           })
         }
         </ul>
@@ -120,6 +129,9 @@ const mapDispatchToProps = (dispatch) => {
     },
     updateNavSidebar: ({id, type, title, url}) => {
       dispatch(updateNavSidebar({id, type, title, url}));
+    },
+    removeNavItem: ({id, type}) => {
+      dispatch(removeNavItem({id, type}));
     }
   };
 };

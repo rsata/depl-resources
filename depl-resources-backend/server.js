@@ -159,4 +159,19 @@ app.delete('/api/delete', function(req, res, next) {
   });
 });
 
+app.delete('/api/nav/delete', function(req, res, next) {
+  MongoClient.connect(url, (err, db) => {
+    const id = req.body.id;
+
+    const collection = db.collection('nav');
+    console.log({id});
+    // something like this...
+    collection.remove({id}, (err, result) => {
+      if (err) return err;
+      console.log('remove success');
+      res.send(result);
+    });
+  });
+});
+
 app.listen(process.env.PORT || 3001);

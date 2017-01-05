@@ -49,6 +49,9 @@ class CardItemEditForm extends React.Component {
           <option value="advancedConfig">Advanced Configuration</option>
           <option value="mapLoading">Map Loading</option>
           <option value="siteBuild">Site Build</option>
+          <option value="resources">Resources</option>
+          <option value="tips">Tips</option>
+          <option value="password">Password</option>
         </select>
         <h3>Title</h3>
         <input type='text' name='title' defaultValue={this.props.data.title} />

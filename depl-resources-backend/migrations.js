@@ -17,7 +17,7 @@ function generateId(){
 }
 function run() {
   if (command === 'findAll') return findAll();
-  if (command === 'fc') return findCustom();
+  if (command === 'findCustom') return findCustom();
   if (command === 'removeAll') return removeAll();
   if (command === 'insert') return insert();
   if (command === 'side') return insertSideNav();

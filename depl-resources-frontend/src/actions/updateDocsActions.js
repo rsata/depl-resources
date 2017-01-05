@@ -86,3 +86,24 @@ export function updateNavSidebar({id, type, title, url}) {
     );
   };
 }
+
+export function removeNavItem({id, type}) {
+  let confirm = window.confirm('Are you sure you want to delete?');
+  if (!confirm) return null;
+  return (dispatch) => {
+    fetch('http://localhost:3001/api/nav/delete', {
+      method: 'DELETE',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id
+      })
+    }).then(
+      dispatch({
+        type: 'UPDATE_NAV_DELETE',
+        payload: {id, type}
+      })
+    );
+  };
+}

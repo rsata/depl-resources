@@ -61,7 +61,7 @@ class Nav extends React.Component {
           <li onClick={this.handleOpenSideNav.bind(this)}>
             <div>Username</div>
           </li>
-          <Password password={this.props.nav.password.title} />
+          <Password password={this.props.nav.password[0].title} />
           <Calendar />
           <TeamMenu path={routeToPageMapping[this.trimPath(this.props.path)]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
         </ul>

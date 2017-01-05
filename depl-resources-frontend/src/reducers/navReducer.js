@@ -1,17 +1,18 @@
 const updateDocsReducer = (state={}, action) => {
   switch(action.type) {
     case 'LOAD_NAV_DATA':
-      // let resources = [];
-      // let tips = [];
-      let password;
+      let resources = [];
+      let tips = [];
+      let password= [];
       action.payload.forEach((i) => {
-        // if (i.type==='resources') resources.push(i);
-        // if (i.type==='tips') tips.push(i);
-        if (i.type==='password') password = i;
+        if (i.type==='resources') resources.push(i);
+        if (i.type==='tips') tips.push(i);
+        if (i.type==='password') password.push(i);
       });
       return state = {
         ...state,
-        config: action.payload,
+        resources,
+        tips,
         password
       };
 
@@ -29,6 +30,21 @@ const updateDocsReducer = (state={}, action) => {
           ...stateItemArray.slice(updateIndex + 1)
         ]
       };
+
+      case 'UPDATE_NAV_DELETE':
+        console.log(state);
+        const stateItemDeleteArray = state[action.payload.type];
+        var deleteIndex = stateItemDeleteArray.map(function(el) {
+          return el.id;
+        }).indexOf(action.payload.id);
+
+        return state = {
+          ...state,
+          [action.payload.type]: [
+            ...stateItemDeleteArray.slice(0, deleteIndex),
+            ...stateItemDeleteArray.slice(deleteIndex + 1)
+          ]
+        };
 
     default: {
       return {
