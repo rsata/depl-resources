@@ -32,13 +32,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 const dbName = 'depl-resources-db';
 const url = 'mongodb://localhost:27017/' + dbName;
 
-// static for now, but eventually /deployment will be in req.param
-// req.param will be name of db
 app.get('/api/data/deployment/get', function(req, res, next) {
-
-  // const data = MongoQuery('get', 'depl-resources-db', 'resources');
-  // res.send(data);
-
   MongoClient.connect(url, (err, db) => {
     assert.equal(null, err);
 
@@ -47,6 +41,21 @@ app.get('/api/data/deployment/get', function(req, res, next) {
       if (err) return console.log(err);
       res.json(doc);
       console.log('sent data');
+    });
+
+    db.close();
+  });
+});
+
+app.get('/api/data/nav', function(req, res, next) {
+  MongoClient.connect(url, (err, db) => {
+    assert.equal(null, err);
+
+    const collection = db.collection('nav');
+    collection.find({}).toArray((err, doc) => {
+      if (err) return console.log(err);
+      res.json(doc);
+      console.log('sent nav data');
     });
 
     db.close();
@@ -104,6 +113,25 @@ app.post('/api/update', function(req, res, next) {
     });
   });
 });
+
+app.post('/api/updateNavSidebar', function(req, res, next) {
+  MongoClient.connect(url, (err, db) => {
+    const id = req.body.id;
+    const title = req.body.title;
+    const url = req.body.url;
+    const type = req.body.type;
+
+    const collection = db.collection('nav');
+    console.log({id, type, title, url});
+    // something like this...
+    collection.update({id}, {$set: {type, title, url, lastEdited: new Date()}}, (err, result) => {
+      if (err) return err;
+      console.log('update success');
+      res.send(result);
+    });
+  });
+});
+
 
 app.post('/api/jira', function(req, res, next) {
   const username = req.body.username;

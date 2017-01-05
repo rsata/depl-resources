@@ -5,9 +5,11 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import updateDocsReducer from './reducers/updateDocsReducer';
+import navReducer from './reducers/navReducer';
 
 const rootReducer = combineReducers({
   deploymentDocs: updateDocsReducer,
+  nav: navReducer,
   routing: routerReducer
 });
 

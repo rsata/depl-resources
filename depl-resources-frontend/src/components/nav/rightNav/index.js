@@ -1,17 +1,19 @@
-import React from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './rightNav.scss';
+import RightNav from './RightNav';
+import { connect } from 'react-redux';
+import { getNavItems } from '../../../actions/initActions';
 
-const RightNav = (props) => {
-  return (
-    <div styleName='wrapper'>
-      <ul>
-        <li>Item 1</li>
-        <li>Item 2</li>
-        <li>Item 3</li>
-      </ul>
-    </div>
-  );
+const mapStateToProps = (state) => {
+  return {
+    nav: state.nav
+  };
 };
 
-export default CSSModules(RightNav, styles);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getNavItems: () => {
+      dispatch(getNavItems());
+    }
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RightNav);

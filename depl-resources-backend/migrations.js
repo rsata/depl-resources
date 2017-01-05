@@ -17,9 +17,10 @@ function generateId(){
 }
 function run() {
   if (command === 'findAll') return findAll();
-  if (command === 'findCustom') return findCustom();
+  if (command === 'fc') return findCustom();
   if (command === 'removeAll') return removeAll();
   if (command === 'insert') return insert();
+  if (command === 'side') return insertSideNav();
   return console.log('enter a valid command, stupid');
 }
 
@@ -60,8 +61,8 @@ function findCustom() {
   MongoClient.connect(url, function(err, db) {
     assert.equal(null, err);
 
-    const collection = db.collection('resources');
-    collection.find({id: 'd00db574cad08f7c7e9c'}).toArray((err, data) => {
+    const collection = db.collection('nav');
+    collection.find({}).toArray((err, data) => {
       console.log(data);
     });
 
@@ -76,6 +77,23 @@ function removeAll() {
     const collection = db.collection('resources');
     collection.remove({});
 
+    db.close();
+  });
+}
+
+function insertSideNav() {
+  MongoClient.connect(url, function(err, db) {
+    assert.equal(null, err);
+
+    const collection = db.collection('nav');
+
+    collection.insert({
+      id: generateId(),
+      lastEdited: moment().format(),
+      type: 'resources',
+      title: 'another example',
+      url: ''
+    });
     db.close();
   });
 }

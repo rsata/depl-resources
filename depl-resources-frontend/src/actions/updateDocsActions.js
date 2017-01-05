@@ -64,3 +64,25 @@ export function removeDoc({id, type}) {
     );
   };
 }
+
+export function updateNavSidebar({id, type, title, url}) {
+  return (dispatch) => {
+    fetch('http://localhost:3001/api/updateNavSidebar', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        id,
+        type,
+        title,
+        url
+      })
+    }).then(
+      dispatch({
+        type: 'UPDATE_NAV_SIDEBAR',
+        payload: {id, type, title, url}
+      })
+    );
+  };
+}
