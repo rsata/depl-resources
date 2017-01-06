@@ -33,6 +33,10 @@ class Nav extends React.Component {
     });
   }
 
+  // componentDidMount() {
+  //   this.props.getNavItems();
+  // }
+
   handleOpenSideNav() {
     this.setState({toggleSideNav: !this.state.toggleSideNav});
   }
@@ -54,7 +58,20 @@ class Nav extends React.Component {
   }
 
   render() {
-    if (Object.keys(this.props.nav).length < 1) return (<div>Loading...</div>);
+    if (Object.keys(this.props.nav).length < 1) return (
+      <div>
+        <ul styleName='navbar'>
+          <li onClick={this.handleOpenSideNav.bind(this)}>
+            <div>Username</div>
+          </li>
+          <Password password={'Loading...'} />
+          <Calendar />
+          <TeamMenu path={routeToPageMapping[this.trimPath(this.props.path)]} handleTeamDropdown={this.handleTeamDropdown.bind(this)} />
+        </ul>
+        {this.state.toggleSideNav===true ? <SideNav /> : null}
+        {this.state.toggleTeamDropdown===true ? <TeamDropdown handleTeamDropdown={this.handleTeamDropdown.bind(this)} /> : null}
+      </div>
+    );
     return(
       <div>
         <ul styleName='navbar'>
