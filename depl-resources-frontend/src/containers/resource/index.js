@@ -30,7 +30,6 @@ class Resource extends React.Component {
     // need to trigger state setting after data loaded on page refresh
     if (Object.keys(this.props.data).length === 0) {
       this.props.loadData();
-
     };
   }
 
@@ -44,8 +43,9 @@ class Resource extends React.Component {
       <div>
         <button style={tempStyle.button}><Link style={tempStyle} to='/deployment'>Back</Link></button>
         <h1>{this.props.data[this.state.type].find((el) => {return el.id === this.state.id;}).title}</h1>
-        <div dangerouslySetInnerHTML={this.createMarkup(this.props.data[this.state.type].find((el) => {return el.id === this.state.id;}).entry
-          )
+        <div dangerouslySetInnerHTML={this.createMarkup(this.props.data[this.state.type].find((el) => {
+          return el.id === this.state.id;
+        }).entry)
         } />
       </div>
     );

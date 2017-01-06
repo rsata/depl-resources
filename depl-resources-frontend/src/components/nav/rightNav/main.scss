@@ -5,10 +5,15 @@
   padding: 1%;
   background-color: #999;
   width: 14.66%;
-  li.listHeaders {
+  a {
+    color: white;
+  }
+  li {
     list-style: none;
-    margin-bottom: 12px;
     font-size: 1.1em;
     color: #fff;
+    &.listHeaders {
+      margin-bottom: 20px;
+    }
   }
 }
