@@ -30,9 +30,20 @@ app.use('/*', function (req, res, next) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+// DB info
 const dbName = 'depl-resources-db';
 const url = 'mongodb://localhost:27017/' + dbName;
 
+// Helper
+function generateId(){
+  return 'xxxxxxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+  	// eslint-disable-next-line
+    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
+    return v.toString(16);
+	});
+}
+
+// Endpoints
 app.get('/api/data/deployment/get', function(req, res, next) {
   MongoClient.connect(url, (err, db) => {
     assert.equal(null, err);
@@ -63,14 +74,6 @@ app.get('/api/data/nav', function(req, res, next) {
   });
 });
 
-function generateId(){
-  return 'xxxxxxxxxxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
-  	// eslint-disable-next-line
-    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
-    return v.toString(16);
-	});
-}
-
 app.post('/api/insert', function(req, res, next) {
   MongoClient.connect(url, (err, db) => {
     const title = req.body.title;
@@ -81,7 +84,7 @@ app.post('/api/insert', function(req, res, next) {
     const collection = db.collection('resources');
     // something like this...
     collection.insert({
-      id: generateId(), // don't need this.. should be done automatically with _id
+      id: generateId(),
       lastEdited: new Date(),
       type,
       title,
@@ -152,7 +155,6 @@ app.delete('/api/delete', function(req, res, next) {
 
     const collection = db.collection('resources');
     console.log({id});
-    // something like this...
     collection.remove({id}, (err, result) => {
       if (err) return err;
       console.log('remove success');
@@ -167,7 +169,6 @@ app.delete('/api/nav/delete', function(req, res, next) {
 
     const collection = db.collection('nav');
     console.log({id});
-    // something like this...
     collection.remove({id}, (err, result) => {
       if (err) return err;
       console.log('remove success');
