@@ -42,7 +42,7 @@ class CardItemEditForm extends React.Component {
     console.log(this.props.data);
     return(
       <div styleName='editForm'>
-        <h2>Insert new document (defaults to depl team for now...)</h2>
+        <h2>Insert new document (defaults to depl team page for now...)</h2>
         <form onSubmit={this.handleUpdateDocs.bind(this)}>
         <select id='typeDropdown' name='type'>
           <option value="standards">Standards</option>
@@ -56,7 +56,7 @@ class CardItemEditForm extends React.Component {
         </select>
         <h3>Title</h3>
         <input type='text' name='title' defaultValue={this.props.data.title} />
-        <h3>External URL (if applicable)</h3>
+        <h3>External URL (if applicable - MUST BE FULL LINK - e.g. http://google.com NOT google.com)</h3>
         <input type='text' name='url' defaultValue={this.props.data.url} />
         <h3>Entry (leave blank if external URL)</h3>
         <textarea name='entry' defaultValue={this.props.data.entry} />

@@ -96,23 +96,23 @@ module.exports = {
 
       /***** Begin additional loaders *****/
 
-      // {
-      //   test: /\.scss$/,
-      //   loaders: [
-      //     'style?sourceMap',
-      //     'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
-      //     'resolve-url',
-      //     'sass?sourceMap'
-      //   ]
-      // },
-
       {
         test: /\.scss$/,
-        loader: ExtractTextPlugin.extract({
-          notExtractLoader: 'style-loader',
-          loader: 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url!sass',
-        }),
+        loaders: [
+          'style?sourceMap',
+          'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]',
+          'resolve-url',
+          'sass?sourceMap'
+        ]
       },
+
+      // {
+      //   test: /\.scss$/,
+      //   loader: ExtractTextPlugin.extract({
+      //     notExtractLoader: 'style-loader',
+      //     loader: 'css?modules&importLoaders=1&localIdentName=[path]___[name]__[local]___[hash:base64:5]!resolve-url!sass',
+      //   }),
+      // },
 
       /***** End additional loaders *****/
 
@@ -185,10 +185,10 @@ module.exports = {
     ];
   },
   plugins: [
-    new ExtractTextPlugin({
-      filename: 'app.css',
-      allChunks: true
-    }),
+    // new ExtractTextPlugin({
+    //   filename: 'app.css',
+    //   allChunks: true
+    // }),
     // Makes the public URL available as %PUBLIC_URL% in index.html, e.g.:
     // <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico">
     // In development, this will be an empty string.
