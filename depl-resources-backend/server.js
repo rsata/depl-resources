@@ -99,6 +99,31 @@ app.post('/api/insert', function(req, res, next) {
   });
 });
 
+app.post('/api/insert/insert-nav', function(req, res, next) {
+  MongoClient.connect(url, (err, db) => {
+    const title = req.body.title;
+    const entry = req.body.entry;
+    const url = req.body.url;
+    const type = req.body.type;
+
+    const collection = db.collection('nav');
+    // something like this...
+    collection.insert({
+      id: generateId(),
+      lastEdited: new Date(),
+      type,
+      title,
+      url,
+      entry
+    }, (err, result) => {
+      if (err) return err;
+      console.log('post success');
+      res.send(result);
+    });
+    db.close();
+  });
+});
+
 app.post('/api/update', function(req, res, next) {
   MongoClient.connect(url, (err, db) => {
     const id = req.body.id;

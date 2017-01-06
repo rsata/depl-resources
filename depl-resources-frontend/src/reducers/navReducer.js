@@ -16,6 +16,16 @@ const updateDocsReducer = (state={}, action) => {
         password
       };
 
+    case 'UPDATE_NAV_INSERT':
+      const stateItemInsertArray = state[action.payload.type];
+      return state = {
+        ...state,
+        [action.payload.type]: [
+          ...stateItemInsertArray,
+          action.payload
+        ]
+      };
+
     case 'UPDATE_NAV_SIDEBAR':
       const stateItemArray = state[action.payload.type];
       var updateIndex = stateItemArray.map(function(el) {

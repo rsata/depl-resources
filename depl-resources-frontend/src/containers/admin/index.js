@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { insertNewDoc, updateDocs, removeDoc, updateNavSidebar, removeNavItem } from '../../actions/updateDocsActions';
+import { insertNewDoc, insertNewDocNav, updateDocs, removeDoc, updateNavSidebar, removeNavItem } from '../../actions/updateDocsActions';
 import { loadData, getNavItems } from '../../actions/initActions';
 
 import { InsertDoc } from '../../components/admin/InsertDoc';
@@ -56,6 +56,7 @@ class Admin extends React.Component {
           this.state.toggleAddNew===true ?
           <InsertDoc
             insertNewDoc={({type, title, url, entry}) => this.props.insertNewDoc({type, title, url, entry})}
+            insertNewDocNav={({type, title, url, entry}) => this.props.insertNewDocNav({type, title, url, entry})}
             handleToggleAddNew={this.handleToggleAddNew.bind(this)} /> :
           null
         }
@@ -114,6 +115,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     insertNewDoc: ({type, title, url, entry}) => {
       dispatch(insertNewDoc({type, title, url, entry}));
+    },
+    insertNewDocNav: ({type, title, url, entry}) => {
+      dispatch(insertNewDocNav({type, title, url, entry}));
     },
     updateDocs: ({id, type, title, url, entry}) => {
       dispatch(updateDocs({id, type, title, url, entry}));

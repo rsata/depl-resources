@@ -7,8 +7,13 @@ export const InsertDoc = (props) => {
     const title = e.target.title.value;
     const url = e.target.url.value;
     const entry = e.target.entry.value;
-    props.insertNewDoc({type, title, url, entry});
     props.handleToggleAddNew();
+
+    if (type==='resources' || type==='tips' || type==='password') {
+      props.insertNewDocNav({type, title, url, entry});
+    } else {
+      props.insertNewDoc({type, title, url, entry});
+    }
   }
 
   return (
@@ -21,6 +26,9 @@ export const InsertDoc = (props) => {
         <option value="advancedConfig">Advanced Configuration</option>
         <option value="mapLoading">Map Loading</option>
         <option value="siteBuild">Site Build</option>
+        <option value="resources">Resources</option>
+        <option value="tips">Tips</option>
+        <option value="password">Password</option>
       </select>
       <h3>Title</h3>
       <input type='text' name='title' />

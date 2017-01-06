@@ -17,7 +17,28 @@ export function insertNewDoc({type, title, url, entry}) {
         payload: {type, title, url, entry}
       })
     );
-    // update state?
+  };
+}
+
+export function insertNewDocNav({type, title, url, entry}) {
+  return (dispatch) => {
+    fetch('http://localhost:3001/api/insert/insert-nav', {
+      method: 'POST',
+      headers: {
+        'content-type': 'application/json'
+      },
+      body: JSON.stringify({
+        type,
+        title,
+        url,
+        entry
+      })
+    }).then(
+      dispatch({
+        type: 'UPDATE_NAV_INSERT',
+        payload: {type, title, url, entry}
+      })
+    );
   };
 }
 
