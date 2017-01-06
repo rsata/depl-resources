@@ -3,6 +3,9 @@
   background-color: #555;
   color: #fff;
   width: 100%;
+  position: relative;
+  top: 0;
+  z-index: 10;
   li {
     display:table-cell;
     text-align:center;
