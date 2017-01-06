@@ -28,12 +28,10 @@ export class Password extends React.Component {
     let copy = window.setTimeout(() => {
       document.execCommand('copy');
       this.setState({copied: !this.state.copied});
-    }
-    , 100);
+    }, 100);
     let hide = window.setTimeout(() => {
       this.setState({copied: !this.state.copied});
-    }
-    , 2000);
+    }, 2000);
   }
 
   render() {
