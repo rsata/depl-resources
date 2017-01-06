@@ -33,9 +33,9 @@ class Nav extends React.Component {
     });
   }
 
-  // componentDidMount() {
-  //   this.props.getNavItems();
-  // }
+  componentDidMount() {
+    this.props.getNavItems();
+  }
 
   handleOpenSideNav() {
     this.setState({toggleSideNav: !this.state.toggleSideNav});
